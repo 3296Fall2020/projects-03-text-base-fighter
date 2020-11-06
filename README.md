@@ -47,19 +47,19 @@ Carl is a college student who's majoring in computer science. Carl wants to lear
 
 
 ## Main Contributions and Project Features
-There are 3 main things that we, as a team, are planning to create in this project
+There are four main things that we, as a team, are planning to create in this project
 
 1. Create a Tutorial - The tutorial is a scripted encounter with a basic monster that will be used to teach the plyer the basic way the game should be played.
 2. Create a Story/Adventure Mode - Currently, the game is in free play, with no ending. The Story Mode would be a series of increaingly difficult encounters in which the player would eventually finish the game. It will be an option in addition to the free play mode.
 3. Add Character Images/GUI - As of this time, Text Base Fighter has only one image: it's splash screen. We intend to include a set of images to represent monsters, items and other game elements to make the UI feel more alive.
 4. Create Classes - Add starting classes that effect the plyers strating HP, armor, and weapon. Maybe add weapon compatiblity, like only mages can use staffs and only archers can use bows.  
 
-We can also add more encounters and items, but these are the main point of the project. 
+We can also add more encounters and items, but these are the main points of the project. 
 
 
 ### Project Board
 
-Our progress is recorded on a project board on Trello. It's link is [here](https://trello.com/b/pltcOtj4/text-based-fighter)
+Our progress is recorded on a project board on Trello. It's link is [here](https://trello.com/b/pltcOtj4/text-based-fighter).
 
 ### Tenative Story
 ---
