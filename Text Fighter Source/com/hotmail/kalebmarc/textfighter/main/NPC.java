@@ -15,6 +15,9 @@
 /*    */   private static final String NAME_XP = "Halette";
 /*    */   private static final String NAME_ARMOUR = "Leon";
 /*    */   
+/*    */   //figuring out how to make an npc for the quest
+/*    */   private static final String NAME_QUEST = "Harry";
+/*    */   
 /*    */   public static String getName(String type) {
 /* 19 */     switch (type.toLowerCase())
 /*    */     { case "health":
