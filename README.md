@@ -3,6 +3,7 @@ projects-03-text-base-fighter created by GitHub Classroom
 
 Vision Statement
 ---
+
 The game is for people who loved 1970s games. The text-base-fighter is java based game that can provide authentic nostalgic feeling to the mid-age gamer. 
 Personas
 ---
