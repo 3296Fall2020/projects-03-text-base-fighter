@@ -30,3 +30,7 @@ Feature List
 ### monster picture(Ascii art)
 
 
+Story
+---
+You meet a human in a bar. He mentions how he inherited his grandfather's manor. He tells you the story about his grandfather and how he took part in the world war that took place a few hundreds years ago. During the war, he was able to accumulate rare weapons and items that he keeps as a collection hidden inside of his manor. There are enemies who are after his grandfather's collection. This human can not handle protecting the manor on his own, he desperately asks you for help in return he will reward you with one of his grandfather's rare treasure.
+
