@@ -35,9 +35,9 @@ His gaming sense for old school games and RPGs makes him a perfect person to pla
 Nolan's Persona: <br/>
 Chuck, Father/Family Man <br/>
 
-Chuck is a 37-year-old contruction worker who has a 5-year-old son and another on the way. His son enjoys games and chuck enjoys spending time with his boy. Since his son is not that old he doesn't want him to see anything too graphic yet it games and but also wants his son to understand what he's playing. <br/>
+Chuck is a 37-year-old construction worker who has a 5-year-old son and another on the way. His son enjoys games and chuck enjoys spending time with his boy. Since his son is not that old, he doesn't want him to see anything too graphic yet in games and also wants his son to understand what he's playing. <br/>
 
-A textbase fighter is perfect for some family friendly bonding between a boy and his dad. <br/>
+A text-based fighter is perfect for some family friendly bonding between a boy and his dad. <br/>
 
 
 ## Main Contributions and Project Features
