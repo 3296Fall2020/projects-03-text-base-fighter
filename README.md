@@ -30,14 +30,14 @@ Bruce, Retail Worker <br/>
 
 Bruce is a 27-year-old retail worker working for Walmart. He’s a manager and he graduated from college when he was 25. Still trying to figure out what he wants to do with his life besides playing retro-style games in his downtime. He loves playing old school games like Mario 64, sonic, Pac-man, donkey kong, etc. <br/>
 
-His gaming sense for old school games and RPGs makes him a perfect person to play this textbase fighter which sparks his desire for adventure and freedom.
+His gaming sense for old school games and RPGs makes him a perfect person to play this textbase fighter which sparks his desire for adventure and freedom. <br/>
 
-Darnell’s Persona: <br/>
-Carl, Computer Science Student <br/>
+Nolan's Persona: <br/>
+Chuck, Father/Family Man <br/>
 
-Carl is a college student who's majoring in computer science. Carl wants to learn more about Java and how different classes can come together to create a complete application. He picks Text Base Fighter as a project to study, because it has a clear and simple organizational structure. Unlike Danny, Carl finds value in Text Base Fighter as a tool to learn more about programming.
+Chuck is a 37-year-old contruction worker who has a 5-year-old son and another on the way. His son enjoys games and chuck enjoys spending time with his boy. Since his son is not that old he doesn't want him to see anything too graphic yet it games and but also wants his son to understand what he's playing. <br/>
 
-
+A textbase fighter is perfect for some family friendly bonding between a boy and his dad. <br/>
 
 
 ## Main Contributions and Project Features
@@ -46,6 +46,7 @@ There are 3 main things that we, as a team, are planning to create in this proje
 1. Create a Tutorial - The tutorial is a scripted encounter with a basic monster that will be used to teach the plyer the basic way the game should be played.
 2. Create a Story/Adventure Mode - Currently, the game is in free play, with no ending. The Story Mode would be a series of increaingly difficult encounters in which the player would eventually finish the game. It will be an option in addition to the free play mode.
 3. Add Character Images/GUI - As of this time, Text Base Fighter has only one image: it's splash screen. We intend to include a set of images to represent monsters, items and other game elements to make the UI feel more alive.
+4. Create Classes - Add starting classes that effect the plyers strating HP, armor, and weapon. Maybe add weapon compatiblity, like only mages can use staffs and only archers can use bows.  
 
 We can also add more encounters and items, but these are the main point of the project. 
 
