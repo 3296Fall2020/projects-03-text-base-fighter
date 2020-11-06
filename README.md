@@ -22,6 +22,14 @@ Bob used to be a huge fan of game in 70s, he build himself a computer when he wa
 
 Now, he is 60 years-old and want to something that can let him recall time when he was young, but able to run on modern platform. <br/>
 
+Wayne’s Persona: <br/>
+Bruce, Retail Worker <br/>
+
+Bruce is a 27-year-old retail worker working for Walmart. He’s a manager and he graduated from college when he was 25. Still trying to figure out what he wants to do with his life besides playing retro-style games in his downtime. He loves playing old school games like Mario 64, sonic, Pac-man, donkey kong, etc. <br/>
+
+His gaming sense for old school games and RPGs makes him a perfect person to play this textbase fighter which sparks his desire for adventure and freedom.
+
+
 
 
 Feature List
