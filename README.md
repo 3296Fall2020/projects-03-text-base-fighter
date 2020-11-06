@@ -32,7 +32,7 @@ Bruce is a 27-year-old retail worker working for Walmart. He’s a manager and h
 
 His gaming sense for old school games and RPGs makes him a perfect person to play this textbase fighter which sparks his desire for adventure and freedom.
 
-Wayne’s Persona: <br/>
+Darnell’s Persona: <br/>
 Carl, Computer Science Student <br/>
 
 Carl is a college student who's majoring in computer science. Carl wants to learn more about Java and how different classes can come together to create a complete application. He picks Text Base Fighter as a project to study, because it has a clear and simple organizational structure. Unlike Danny, Carl finds value in Text Base Fighter as a tool to learn more about programming.
