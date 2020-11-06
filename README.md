@@ -39,6 +39,12 @@ Chuck is a 37-year-old contruction worker who has a 5-year-old son and another o
 
 A textbase fighter is perfect for some family friendly bonding between a boy and his dad. <br/>
 
+Darnell's Persona: <br/>
+Carl, Computer Science Student
+
+Carl is a college student who's majoring in computer science. Carl wants to learn more about Java and how different classes can come together to create a complete application. He picks Text Base Fighter as a project to study, because it has a clear and simple organizational structure. Carl finds value in Text Base Fighter as a tool to learn more about programming, rather than just being a game.
+
+
 
 ## Main Contributions and Project Features
 There are 3 main things that we, as a team, are planning to create in this project
