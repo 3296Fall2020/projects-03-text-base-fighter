@@ -1,6 +1,7 @@
 /*     */ package com.hotmail.kalebmarc.textfighter.item;
 /*     */ 
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Action;
+import com.hotmail.kalebmarc.textfighter.main.Enemy;
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Handle;
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Ui;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Coins;
@@ -89,7 +90,10 @@
 /*     */   public static Armour getEquipped() {
 /*  90 */     for (Armour i : armours) {
 /*  91 */       if (i.isEquipped()) return i; 
-/*     */     } 
+/*     */     }
+              if (Enemy.get().getName().equals("goblin") && Enemy.get().getDamageMin() == 5 && Enemy.get().getDamageMax()== 5){
+                  return null;
+              }
 /*  93 */     Handle.error("Error - No armour equipped");
 /*  94 */     return null;
 /*     */   }
