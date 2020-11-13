@@ -74,11 +74,9 @@ import com.hotmail.kalebmarc.textfighter.main.Game;
 /*  73 */     if (Settings.getGodMode()) {
 /*  74 */       damage = 0;
 /*     */     }
-/*     */     if (Armour.getEquipped() != null){
-                double resist = Armour.getEquipped().getDamResist() / 100.0D;
-/*  78 */       damage = (int)(damage - damage * resist);
-              }
-/*  77 */     
+/*     */     
+/*  77 */     double resist = Armour.getEquipped().getDamResist() / 100.0D;
+/*  78 */     damage = (int)(damage - damage * resist);
 /*     */     
 /*  80 */     Action.cls();
 /*  81 */     Ui.println("----------------------------------------------------");

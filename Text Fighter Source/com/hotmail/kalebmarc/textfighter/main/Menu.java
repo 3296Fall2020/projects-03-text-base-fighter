@@ -34,12 +34,10 @@
 /*    */           return;
                  case 2:
                    Tutorial.start();
-                   break;
 /*    */         case 3:
 /* 35 */           About.view(false);
-                   break;
 /*    */         case 4:
-/*    */           System.exit(0);
+/*    */           break;
 /*    */       } 
 /*    */     } 
 /*    */   }
