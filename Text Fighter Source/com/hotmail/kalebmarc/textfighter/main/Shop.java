@@ -19,7 +19,7 @@
 /*  19 */       Action.cls();
 /*  20 */       Ui.println("-------------------------------------------------------------------");
 /*  21 */       Ui.println("                        Welcome to the shop!                       ");
-/*  22 */       Ui.println();
+/*  22 */       Ui.shop_pop();
 /*  23 */       Ui.println("Coins: " + Coins.get());
 /*  24 */       Ui.println("First-Aid kits: " + FirstAid.get());
 /*  25 */       Ui.println("Potions: " + (Potion.get("survival") + Potion.get("recovery")));
