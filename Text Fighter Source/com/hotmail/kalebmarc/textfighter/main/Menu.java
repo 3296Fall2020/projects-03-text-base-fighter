@@ -34,7 +34,7 @@
 /*    */         case 2:
 /* 35 */           About.view(false);
 /*    */         case 3:
-/*    */           break;
+/*    */           return;
 /*    */       } 
 /*    */     } 
 /*    */   }

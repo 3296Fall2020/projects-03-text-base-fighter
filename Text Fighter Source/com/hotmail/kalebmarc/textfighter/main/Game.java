@@ -12,6 +12,7 @@
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Settings;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Stats;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Xp;
+/*     */ import com.hotmail.kalebmarc.textfighter.player.Class;
 /*     */ import java.util.Scanner;
 /*     */ 
 /*     */ 
@@ -38,9 +39,13 @@
 /*     */   public static Weapon shotgun;
 /*     */   public static Weapon rifle;
 /*     */   public static Weapon sniper;
+/*     */   public static Weapon broadsword;
+/*     */   public static Weapon battleAxe;
 /*  41 */   public static Armour none = new Armour("None", 0, 0, 1);
 /*  42 */   public static Armour basic = new Armour("Basic", 400, 15, 5);
 /*  43 */   public static Armour advanced = new Armour("Advanced", 750, 30, 7);
+/*     */   public static Armour knight = new Armour("Knight", 100, 20, 1);
+/*     */   public static Armour warrior = new Armour("Warrior", 100, 10, 1);
 /*     */   
 /*  45 */   private static Scanner scan = new Scanner(System.in);
 /*     */ 
@@ -65,13 +70,35 @@
 /*  65 */         if (SaveAndLoad.load())
 /*     */           break; 
 /*  67 */       default: Settings.setDif(getDifficulty(), true, false);
-/*  68 */         Health.set(100, 100);
-/*  69 */         Enemy.encounterNew();
 /*  70 */         if (choice != 1) {
 /*  71 */           User.promptNameSelection();
 /*     */         }
 /*     */         break;
 /*     */     } 
+/*     */
+/*     */     Action.cls();
+/*  53 */     Ui.println("____________________________________________");
+/*  54 */     Ui.println("|                                           |");
+/*  55 */     Ui.println("|            Choose your Class?             |");
+/*  57 */     Ui.println("|                                           |");
+/*  58 */     Ui.println("| 1) Knight                                 |");
+/*  59 */     Ui.println("| 2) Warrior                                |");
+/*  59 */     Ui.println("| 3) None                                   |");
+/*  60 */     Ui.println("|___________________________________________|");
+/*     */
+/*     */     switch (Action.getValidInt()){
+/*     */       case 1:
+/*     */           Class.choose("Knight", 110, broadsword, 3);
+/*     */           break;
+/*     */       case 2:
+/*     */           Class.choose("Warrior", 85, battleAxe, 4);
+/*     */           break;
+/*     */       case 3:
+/*     */           Class.choose("Deprived", 50, nothing, 0);
+/*     */           break;
+/*     */     }
+/*     */     Class.startingClass();
+/*  69 */     Enemy.encounterNew();
 /*     */     
 /*     */     while (true) {
 /*     */       int fightPath;
@@ -96,7 +123,7 @@
 /*  96 */       Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
 /*  97 */       Ui.println("     Kill Streak: " + Stats.kills);
 /*  98 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
-/*  99 */       Ui.println("--" + User.name() + "--");
+/*  99 */       Ui.println("--" + User.name() + " the " + Class.getName() + "--");
 /* 100 */       Ui.println("     Health: " + Health.getStr());
 /* 101 */       Ui.println("     Coins: " + Coins.get());
 /* 102 */       Ui.println("     First-Aid kits: " + FirstAid.get());

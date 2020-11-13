@@ -17,7 +17,7 @@
 /*     */   private boolean owns;
 /*     */   private boolean equipped;
 /*     */   private boolean viewed;
-/*  20 */   private static ArrayList<Armour> armours = new ArrayList<>(3);
+/*  20 */   private static ArrayList<Armour> armours = new ArrayList<>(5);
 /*     */   
 /*     */   public Armour(String name, int price, int damResist, int level) {
 /*  23 */     this.name = name;
