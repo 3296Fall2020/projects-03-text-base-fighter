@@ -99,34 +99,13 @@
 /*  99 */     Xp.set(this.xp, true);
 /* 100 */     Stats.kills++;
 /* 101 */     Stats.totalKills++;
-              if (Enemy.get().name.equals("goblin") && Enemy.get().damageMin == 5 && Enemy.get().damageMax == 5){
-                  return;
-              }
 /*     */ 
 /*     */     
 /* 104 */     Ach.getEnemyAch(get());
 /*     */     
 /* 106 */     encounterNew();
 /*     */   }
-/*     */
-
-            public int getCoinDropMin() {
-                return coinDropMin;
-            }
-
-            public int getCoinDropMax() {
-              return coinDropMax;
-            }
-
-            public int getDamageMin() {
-              return damageMin;
-            }
-
-            public int getDamageMax() {
-              return damageMax;
-            }
-    
-            public static void set(int i) {
+/*     */   public static void set(int i) {
 /* 109 */     current = arrayEnemy.get(i);
 /*     */   }
 /*     */   public void setDamage(int min, int max) {
@@ -171,13 +150,6 @@
 /* 150 */     current.health = current.healthMax;
 /* 151 */     Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
 /*     */   }
-            
-            public static void encounterTutorial(){
-                current = new Enemy("goblin", 20, 0, 1, 5, 5, 10, false, false);
-                current.health = current.healthMax;
-                Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
-                
-            }
 /*     */ 
 /*     */   
 /*     */   public void viewAbout() {
