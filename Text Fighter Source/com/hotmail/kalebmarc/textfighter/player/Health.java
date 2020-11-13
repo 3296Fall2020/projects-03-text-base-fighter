@@ -81,6 +81,7 @@ import com.hotmail.kalebmarc.textfighter.main.Game;
 /*  77 */     
 /*     */     
 /*  80 */     Action.cls();
+              Ui.battle_pop();
 /*  81 */     Ui.println("----------------------------------------------------");
 /*  82 */     Ui.println("You have been hit by a " + Enemy.get().getName() + "!");
 /*  83 */     Ui.println("You lost " + damage + " health.");

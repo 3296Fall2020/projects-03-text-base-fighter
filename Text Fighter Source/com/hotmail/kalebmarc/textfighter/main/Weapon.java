@@ -185,6 +185,7 @@
 /* 185 */     Xp.set(damageDealt, true);
 /* 186 */     Enemy.get().takeDamage(damageDealt);
 /* 187 */     Action.cls();
+              Ui.battle_pop();
 /* 188 */     Ui.println("----------------------------------------------------");
 /* 189 */     Ui.println("You have attacked a " + Enemy.get().getName() + "!");
 /* 190 */     Ui.println("You dealt " + damageDealt + " damage with a " + this.name);

@@ -81,8 +81,10 @@
 /*     */   public static void town() {
 /*     */     while (true) {
 /* 188 */       Action.cls();
+                
 /* 189 */       Ui.println("------------------------------------------------------------------");
 /* 190 */       Ui.println("                      WELCOME TO THE TOWN                         ");
+                Ui.town_pop();
 /* 191 */       Ui.println("--Score Info--");
 /* 192 */       Ui.println("     Kill Streak: " + Stats.kills);
 /* 193 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
@@ -139,8 +141,10 @@
 /*     */   private static void home() {
 /*     */     while (true) {
 /* 241 */       Action.cls();
+                
 /* 242 */       Ui.println("------------------------------------------------------------------");
 /* 243 */       Ui.println("                          WELCOME HOME                            ");
+                Ui.home_pop();
 /* 244 */       Ui.println("--Score Info--");
 /* 245 */       Ui.println("     Kill Streak: " + Stats.kills);
 /* 246 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
@@ -248,7 +252,7 @@ public static void mainGameplay(){
 /*     */       
 /*  87 */       Ui.println("Text-Fighter " + Version.getFull());
 /*  88 */       Ui.println("------------------------------------------------------------------");
-/*     */       
+/*     */       Ui.Player();
 /*  90 */       if (Cheats.enabled()) {
 /*  91 */         Ui.println("CHEATS ACTIVATED");
 /*     */       }
