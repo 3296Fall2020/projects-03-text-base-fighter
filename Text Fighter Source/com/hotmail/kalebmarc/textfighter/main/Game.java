@@ -284,7 +284,7 @@ public static void mainGameplay(){
 /*     */       
 /* 123 */       switch (Action.getValidInt()) {
 /*     */         case 1:
-/* 125 */           fightPath = Random.RInt(100);
+/* 125 */           fightPath = Random.RInt(1,100);
 /*     */           
 /* 127 */           if (Weapon.get().getName().equals("Sniper")) {
 /* 128 */             if (fightPath <= 30) Enemy.get().dealDamage(); 
