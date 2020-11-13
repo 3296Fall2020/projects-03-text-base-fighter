@@ -98,7 +98,8 @@
 /* 203 */       Ui.println("3) Bank");
 /* 204 */       Ui.println("4) Shop");
 /* 205 */       Ui.println("5) Upgrade Health");
-/* 206 */       Ui.println("6) Back");
+                Ui.println("6) Bar");
+/* 206 */       Ui.println("7) Back");
 /* 207 */       Ui.println("------------------------------------------------------------------");
 /*     */       
 /* 209 */       int menuChoice = Action.getValidInt();
@@ -124,6 +125,8 @@
 /* 225 */           Health.upgrade();
                     break;
 /*     */         case 6:
+                    Bar.menu();
+                  case 7:
 /*     */           return;
 /*     */       } 
 /*     */     } 

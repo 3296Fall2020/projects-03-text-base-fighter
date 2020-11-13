@@ -14,7 +14,10 @@
 /*    */   private static final String NAME_WEAPON = "Niel";
 /*    */   private static final String NAME_XP = "Halette";
 /*    */   private static final String NAME_ARMOUR = "Leon";
-/*    */   
+/*    */
+/*    */   private static final String NAME_QUEST = "Auto";
+           private static final String NAME_BAR = "Harold";
+
 /*    */   public static String getName(String type) {
 /* 19 */     switch (type.toLowerCase())
 /*    */     { case "health":
@@ -33,7 +36,7 @@
 /*    */ 
 /*    */ 
 /*    */         
-/* 36 */         return name;case "weapon": name = "Niel"; return name;case "xp": name = "Halette"; return name;case "armour": name = "Leon"; return name; }  name = "This shop does not exist."; return name;
+/* 36 */         return name;case "weapon": name = "Niel"; return name;case "xp": name = "Halette"; return name;case "armour": name = "Leon"; return name;}  name = "This shop does not exist."; return name;
 /*    */   }
 /*    */   
 /*    */   public static String getShop(String npc) {
@@ -53,7 +56,7 @@
 /*    */ 
 /*    */ 
 /*    */         
-/* 56 */         return shop;case "niel": shop = "Weapon"; return shop;case "halette": shop = "XP"; return shop;case "leon": shop = "Armour"; return shop; }  shop = "This NPC does not exist."; return shop;
+/* 56 */         return shop;case "niel": shop = "Weapon"; return shop;case "halette": shop = "XP"; return shop;case "leon": shop = "Armour"; return shop;}  shop = "This NPC does not exist."; return shop;
 /*    */   }
 /*    */   
 /*    */   public static void setName(String npc) {

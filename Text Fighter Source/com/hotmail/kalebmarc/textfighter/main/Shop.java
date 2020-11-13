@@ -44,7 +44,8 @@
 /*     */         case 4:
 /*  45 */           xp();
 /*     */         case 5:
-/*     */           return;
+                   return;
+/*     */
 /*     */       } 
 /*     */     } 
 /*     */   }
@@ -264,7 +265,7 @@
 /*     */         } 
 /*     */       } 
 /* 267 */       Ui.println((validWeapons.size() + 1) + ") Back");
-/*     */ 
+/*     */
 /*     */       
 /*     */       while (true) {
 /* 271 */         int menuItem = Action.getValidInt();
@@ -277,7 +278,7 @@
 /* 278 */         catch (Exception e) {}
 /*     */         continue label23;
 /*     */       } 
-/*     */     } 
+/*     */     }
 /*     */   }
 /*     */ 
 /*     */ 
@@ -323,10 +324,12 @@
 /*     */         }
 /* 326 */         catch (Exception e) {}
 /*     */         continue label21;
-/*     */       } 
+/*     */       }
 /*     */     } 
 /*     */   }
-/*     */ }
+
+
+/*     */ }//end of class shop
 
 
 /* Location:              C:\Users\User\Documents\Text-Base Fighter\Text-Fighter.jar!\com\hotmail\kalebmarc\textfighter\main\Shop.class
