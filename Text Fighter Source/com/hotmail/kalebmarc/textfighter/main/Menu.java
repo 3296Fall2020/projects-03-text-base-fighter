@@ -17,9 +17,8 @@
 /* 17 */       Ui.println("|             and press enter.              |");
 /* 18 */       Ui.println("|                                           |");
 /* 19 */       Ui.println("| 1) Start Game                             |");
-               Ui.println("| 2) Start Tutorial                         |");
-/* 20 */       Ui.println("| 3) About Game                             |");
-/* 21 */       Ui.println("| 4) Exit                                   |");
+/* 20 */       Ui.println("| 2) About Game                             |");
+/* 21 */       Ui.println("| 3) Exit                                   |");
 /* 22 */       Ui.println("|             www.TextFighter.tk            |");
 /* 23 */       Ui.println("|___________________________________________|");
 /*    */       
@@ -32,11 +31,9 @@
 /*    */           
 /* 32 */           SaveAndLoad.save();
 /*    */           return;
-                 case 2:
-                   Tutorial.start();
-/*    */         case 3:
+/*    */         case 2:
 /* 35 */           About.view(false);
-/*    */         case 4:
+/*    */         case 3:
 /*    */           break;
 /*    */       } 
 /*    */     } 
