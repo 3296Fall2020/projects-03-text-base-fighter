@@ -78,8 +78,8 @@
 /*     */   private void die() {
 /*  79 */     int tempCoin = Random.RInt(this.coinDropMin, this.coinDropMax);
 /*  80 */     int tempHealth = Random.RInt(0, 2);
-/*     */ 
-/*     */     
+/*     */     Action.cls();
+/*     */     Ui.victory_pop();
 /*  83 */     Ui.popup("You have defeated an enemy! You've found " + tempCoin + " coins, and " + this.xp + "Xp!", "You've defeated an enemy!", -1);
 /*     */ 
 /*     */     
@@ -148,6 +148,8 @@
 /*     */   public static void encounterNew() {
 /* 149 */     current = arrayEnemy.get(Random.RInt(0, arrayEnemy.size() - 1));
 /* 150 */     current.health = current.healthMax;
+              Action.cls();
+              Ui.ememies_pop();
 /* 151 */     Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
 /*     */   }
 /*     */ 

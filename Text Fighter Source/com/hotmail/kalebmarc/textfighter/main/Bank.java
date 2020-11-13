@@ -26,7 +26,7 @@
 /*  26 */       Action.cls();
 /*  27 */       Ui.println("---------------------------------------");
 /*  28 */       Ui.println("                BANK              ");
-/*  29 */       Ui.println();
+/*  29 */       Ui.coin_pop();
 /*  30 */       Ui.println("You can deposit your coins into");
 /*  31 */       Ui.println("the bank, so they will be safe if");
 /*  32 */       Ui.println("you die. However, you will need to");
