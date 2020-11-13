@@ -16,7 +16,6 @@
 /*    */   private static final String NAME_ARMOUR = "Leon";
 /*    */
 /*    */   private static final String NAME_QUEST = "Auto";
-           private static final String NAME_BAR = "Harold";
 
 /*    */   public static String getName(String type) {
 /* 19 */     switch (type.toLowerCase())
@@ -36,7 +35,7 @@
 /*    */ 
 /*    */ 
 /*    */         
-/* 36 */         return name;case "weapon": name = "Niel"; return name;case "xp": name = "Halette"; return name;case "armour": name = "Leon"; return name;}  name = "This shop does not exist."; return name;
+/* 36 */         return name;case "weapon": name = "Niel"; return name;case "xp": name = "Halette"; return name;case "armour": name = "Leon"; return name; case "quest": name = "Auto"; return name; }  name = "This shop does not exist."; return name;
 /*    */   }
 /*    */   
 /*    */   public static String getShop(String npc) {
