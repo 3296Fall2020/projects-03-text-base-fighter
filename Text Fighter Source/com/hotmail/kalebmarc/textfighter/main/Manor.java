@@ -97,6 +97,12 @@ public class Manor {
                     continue;
 
                 case 5:
+                    Action.cls();
+                    garden();
+                    Action.pause();
+                    continue;
+
+                case 6:
                     return;
             }//end of switch
 
@@ -253,7 +259,7 @@ public class Manor {
 
                 case 1:
                     Action.cls();
-                    Ui.println("zzzzzzzzzzzz");
+                    Ui.println("ZZZZZZZZZZZ");
                     Action.pause();
                     continue;
 
@@ -266,4 +272,45 @@ public class Manor {
     }//end of masterbedroom
 
 /*-----------------------------------------------------------------------------------------------*/
-}//end of Manor
+    public static void garden(){
+         while(true){
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                GARDEN                 ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("The garden is filled with beautiful flowers");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Smell the flowers");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu){
+
+                case 1:
+                    Action.cls();
+                    Ui.println("They smell wonderful");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    } //end of garden
+/*-----------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------*/
