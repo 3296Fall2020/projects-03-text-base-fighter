@@ -397,4 +397,5 @@ public static void mainGameplay(){
 /* Location:              C:\Users\User\Documents\Text-Base Fighter\Text-Fighter.jar!\com\hotmail\kalebmarc\textfighter\main\Game.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
- */
+
+/* 
