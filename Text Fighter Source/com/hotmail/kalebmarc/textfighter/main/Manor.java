@@ -97,6 +97,10 @@ public class Manor {
                     continue;
 
                 case 7:
+                    gallery();
+                    continue;
+
+                case 8:
                     return;
 
             }//end of switch
@@ -106,6 +110,7 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void NPCMenu() {
+
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -147,6 +152,7 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void bedroom1() {
+
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -188,6 +194,7 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void bedroom2() {
+
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -229,6 +236,7 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void masterBedroom() {
+
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -270,6 +278,7 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void garden() {
+
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -310,6 +319,7 @@ public class Manor {
     } //end of garden
     /*-----------------------------------------------------------------------------------------------*/
     public static void kitchen(){
+
          while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -349,5 +359,46 @@ public class Manor {
         }//end of while
     }//end of kitchen
 
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void gallery(){
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                GALLERY                ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("You see a painting");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Take a closer look at the painting");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("It seems to be Auto's great grandfather Sage Meier");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of gallery
     /*-----------------------------------------------------------------------------------------------*/
 }//end of Manor
