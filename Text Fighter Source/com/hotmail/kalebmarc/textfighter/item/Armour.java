@@ -25,6 +25,7 @@ import com.hotmail.kalebmarc.textfighter.main.Enemy;
 /*  24 */     this.price = price;
 /*  25 */     this.damResist = damResist;
 /*  26 */     this.level = level;
+/*     */     this.equipped = false;
 /*  27 */     armours.add(this);
 /*     */   }
 /*     */   public void setName(String name) {
