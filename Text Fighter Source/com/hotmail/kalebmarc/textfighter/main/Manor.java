@@ -60,8 +60,8 @@ public class Manor {
             Ui.println("1) Talk to "+NPC.getName("quest"));
             Ui.println("2) Go to Bedroom 1");
             Ui.println("3) Go to Bedroom 2");
-            Ui.println("4) Go to Garden");
-            Ui.println("5) Go to Master Bedroom");
+            Ui.println("4) Go to Master Bedroom");
+            Ui.println("5) Go to Garden");
             Ui.println("6) Go to Kitchen");
             Ui.println("7) Go to Gallery");
             Ui.println("8) Go to Bathroom");
@@ -78,8 +78,25 @@ public class Manor {
                     NPCMenu();
                     Action.pause();
                     continue;
-
                 case 2:
+                    Action.cls();
+                    bedroom1();
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    Action.cls();
+                    bedroom2();
+                    Action.pause();
+                    continue;
+
+                case 4:
+                    Action.cls();
+                    masterBedroom();
+                    Action.pause();
+                    continue;
+
+                case 5:
                     return;
             }//end of switch
 
@@ -125,5 +142,128 @@ public class Manor {
 
         }//end of while
     }//end of NPCMenu
+/*-----------------------------------------------------------------------------------------------*/
+    public static void bedroom1(){
+        while(true){
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                BEDROOM  1             ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Really nothing in here except for a bed");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Take a nap");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu){
+
+                case 1:
+                    Action.cls();
+                    Ui.println("zzzzzzzzzzzz");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of bathroom1
+
+/*-----------------------------------------------------------------------------------------------*/
+    public static void bedroom2(){
+        while(true){
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                BEDROOM  2             ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Really nothing in here except for a bed");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Take a nap");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu){
+
+                case 1:
+                    Action.cls();
+                    Ui.println("zzzzzzzzzzzz");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of bathroom2
+
+/*-----------------------------------------------------------------------------------------------*/
+    public static void masterBedroom(){
+        while(true){
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("            MASTER BEDROOM             ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Really nothing in here except for a big bed");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Take a nap");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu){
+
+                case 1:
+                    Action.cls();
+                    Ui.println("zzzzzzzzzzzz");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of masterbedroom
+
 /*-----------------------------------------------------------------------------------------------*/
 }//end of Manor
