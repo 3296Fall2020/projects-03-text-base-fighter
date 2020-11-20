@@ -1,5 +1,7 @@
 package com.hotmail.kalebmarc.textfighter.main;
 
+import java.util.ArrayList;
+
 public class Manor {
 
     public static void menu() {
@@ -651,9 +653,7 @@ public class Manor {
             switch (choiceMenu) {
 
                 case 1:
-                    Action.cls();
-                    Ui.println("You see alot of cool and rare items");
-                    Action.pause();
+                    rareWeapons();
                     continue;
 
                 case 2:
@@ -665,5 +665,65 @@ public class Manor {
     }//end of rougueS
 
     /*-----------------------------------------------------------------------------------------------*/
+    //creating a rare items
+    private static void rareWeapons(){
 
+        Weapon scythe = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
+        Weapon fireSword = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
+        Weapon morningStar = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                PANIC ROOM             ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Choose one rare weapon you would like to equip");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) "+scythe.getName());
+            Ui.println("2) "+fireSword.getName());
+            Ui.println("3) "+morningStar.getName());
+            Ui.println("4) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+
+            switch(choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("You now own this: " +scythe.owns());
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    Action.cls();
+                    Ui.println("You now own this: "+fireSword.owns());
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    Action.cls();
+                    Ui.println("You now own this: "+morningStar.owns());
+                    Action.pause();
+
+                case 4:
+                    return;
+            }//end of switch
+
+
+        }//end of while
+    }//end of rareWeapons
+
+    /*-----------------------------------------------------------------------------------------------*/
 }//end of Manor
