@@ -468,7 +468,8 @@ public class Manor {
     }//end of bathroom
     /*-----------------------------------------------------------------------------------------------*/
     public static void library(){
-                while (true) {
+
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("                LIBRARY                ");
@@ -476,7 +477,7 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println("Books");
+            Ui.println("There are lots of books");
             Ui.println();
             Ui.println();
             Ui.println();
@@ -485,7 +486,163 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println("1) Take a closer look at the painting");
+            Ui.println("1) Look on the left side");
+            Ui.println("2) Look on the right side");
+            Ui.println("3) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    left();
+                    continue;
+
+                case 2:
+                    right();
+                    continue;
+
+                case 3:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of library
+    /*-----------------------------------------------------------------------------------------------*/
+    //this is for the left side of the library
+    public static void left(){
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                LIBRARY                ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("There are lots of books.Three of them stands out");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Gamble of Acheron");
+            Ui.println("2) The Prey in the Vale");
+            Ui.println("3) The Bloodless Academy");
+            Ui.println("4) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("A story of a ruler who sells his homeland");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    Action.cls();
+                    Ui.println("A sweet story of how a crow and human boy become friends");
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    Action.cls();
+                    Ui.println("With their history of bloodshed, the Academy tries to have students");
+                    Ui.println("kill with no blood traces");
+                    Action.pause();
+                    continue;
+
+                case 4:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of left
+    /*-----------------------------------------------------------------------------------------------*/
+
+    //this is for the right side of the library
+    public static void right(){
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                LIBRARY                ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("There are lots of books.Three of them stands out");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) The Summer Flame");
+            Ui.println("2) The Blood in the Fog");
+            Ui.println("3) Rogue's Sanctuary");
+            Ui.println("4) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("A story of the flaming war that took place in the summer of 420");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    Action.cls();
+                    Ui.println("The mysterious fog that led to many murders");
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    rogueS();
+                    continue;
+
+                case 4:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of right
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void rogueS(){
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("              PANIC ROOM               ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("You picked up the book and opened the door to the Panic room.");
+            Ui.println("This seems to be a place where Auto's great grandfather keeps his collection");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Look around");
             Ui.println("2) Back");
             Ui.println();
             Ui.println("---------------------------------------");
@@ -495,7 +652,7 @@ public class Manor {
 
                 case 1:
                     Action.cls();
-                    Ui.println("hi");
+                    Ui.println("You see alot of cool and rare items");
                     Action.pause();
                     continue;
 
@@ -505,6 +662,8 @@ public class Manor {
             }//end of switch
 
         }//end of while
-    }//end of library
+    }//end of rougueS
+
     /*-----------------------------------------------------------------------------------------------*/
+
 }//end of Manor
