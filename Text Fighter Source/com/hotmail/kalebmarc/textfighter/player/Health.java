@@ -3,6 +3,7 @@
 /*     */ import com.hotmail.kalebmarc.textfighter.item.Armour;
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Action;
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Enemy;
+import com.hotmail.kalebmarc.textfighter.main.Game;
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Handle;
 /*     */ import com.hotmail.kalebmarc.textfighter.main.Ui;
 /*     */ 
@@ -73,11 +74,14 @@
 /*  73 */     if (Settings.getGodMode()) {
 /*  74 */       damage = 0;
 /*     */     }
-/*     */     
-/*  77 */     double resist = Armour.getEquipped().getDamResist() / 100.0D;
-/*  78 */     damage = (int)(damage - damage * resist);
+/*     */     if (Armour.getEquipped() != null){
+                double resist = Armour.getEquipped().getDamResist() / 100.0D;
+/*  78 */       damage = (int)(damage - damage * resist);
+              }
+/*  77 */     
 /*     */     
 /*  80 */     Action.cls();
+              Ui.battle_pop();
 /*  81 */     Ui.println("----------------------------------------------------");
 /*  82 */     Ui.println("You have been hit by a " + Enemy.get().getName() + "!");
 /*  83 */     Ui.println("You lost " + damage + " health.");
@@ -197,8 +201,8 @@
 /* 197 */         Ui.println("Coins: " + Coins.get());
 /* 198 */         Action.pause();
 /*     */         continue;
-/*     */       } 
-/*     */       break;
+/*     */       }
+                return;
 /*     */     } 
 /*     */   }
 /*     */ }

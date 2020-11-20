@@ -78,8 +78,8 @@
 /*     */   private void die() {
 /*  79 */     int tempCoin = Random.RInt(this.coinDropMin, this.coinDropMax);
 /*  80 */     int tempHealth = Random.RInt(0, 2);
-/*     */ 
-/*     */     
+/*     */     Action.cls();
+/*     */     Ui.victory_pop();
 /*  83 */     Ui.popup("You have defeated an enemy! You've found " + tempCoin + " coins, and " + this.xp + "Xp!", "You've defeated an enemy!", -1);
 /*     */ 
 /*     */     
@@ -99,13 +99,34 @@
 /*  99 */     Xp.set(this.xp, true);
 /* 100 */     Stats.kills++;
 /* 101 */     Stats.totalKills++;
+              if (Enemy.get().name.equals("goblin") && Enemy.get().damageMin == 5 && Enemy.get().damageMax == 5){
+                  return;
+              }
 /*     */ 
 /*     */     
 /* 104 */     Ach.getEnemyAch(get());
 /*     */     
 /* 106 */     encounterNew();
 /*     */   }
-/*     */   public static void set(int i) {
+/*     */
+
+            public int getCoinDropMin() {
+                return coinDropMin;
+            }
+
+            public int getCoinDropMax() {
+              return coinDropMax;
+            }
+
+            public int getDamageMin() {
+              return damageMin;
+            }
+
+            public int getDamageMax() {
+              return damageMax;
+            }
+    
+            public static void set(int i) {
 /* 109 */     current = arrayEnemy.get(i);
 /*     */   }
 /*     */   public void setDamage(int min, int max) {
@@ -148,8 +169,17 @@
 /*     */   public static void encounterNew() {
 /* 149 */     current = arrayEnemy.get(Random.RInt(0, arrayEnemy.size() - 1));
 /* 150 */     current.health = current.healthMax;
+              Action.cls();
+              Ui.ememies_pop();
 /* 151 */     Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
 /*     */   }
+            
+            public static void encounterTutorial(){
+                current = new Enemy("goblin", 20, 0, 1, 5, 5, 10, false, false);
+                current.health = current.healthMax;
+                Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
+                
+            }
 /*     */ 
 /*     */   
 /*     */   public void viewAbout() {

@@ -68,11 +68,13 @@
 /*  63 */     switch (choice) {
 /*     */       case 1:
 /*  65 */         if (SaveAndLoad.load())
-/*     */           break; 
-/*  67 */       default: Settings.setDif(getDifficulty(), true, false);
-/*  70 */         if (choice != 1) {
+/*     */           break;
+/*  67 */       default: 
+                    Settings.setDif(getDifficulty(), true, false);
+/*  70 */           if (choice != 1) {
 /*  71 */           User.promptNameSelection();
-/*     */         }
+/*     */           }
+                    mainGameplay();
 /*     */         break;
 /*     */     } 
 /*     */
@@ -157,17 +159,17 @@
 /*     */           } 
 /* 131 */           if (fightPath <= 50) Enemy.get().dealDamage(); 
 /* 132 */           if (fightPath > 50) Weapon.get().dealDam();
-/*     */         
+/*     */           break;
 /*     */         
 /*     */         case 2:
 /* 136 */           home();
-/*     */         
+/*     */           break;
 /*     */         case 3:
 /* 139 */           town();
-/*     */         
+/*     */           break;
 /*     */         case 4:
 /* 142 */           FirstAid.use();
-/*     */         
+/*     */           break;
 /*     */         case 5:
 /* 145 */           Action.cls();
 /* 146 */           Ui.println("Which potion would you like to use?");
@@ -184,22 +186,24 @@
 /*     */             
 /*     */             case 3:
 /*     */               break;
+/*     */           break;    
 /*     */           } 
 /*     */         
 /*     */         
 /*     */         case 6:
 /* 164 */           InstaHealth.use();
-/*     */         
+/*     */           break;
 /*     */         case 7:
 /* 167 */           Power.use();
-/*     */         
+/*     */           break;
 /*     */         case 8:
 /*     */           return;
 /*     */         case 0:
 /* 172 */           Cheats.cheatGateway();
-/*     */         
+/*     */           break;
 /*     */         case 99:
 /* 175 */           Debug.menu();
+/*     */            break;    
 /*     */       } 
 /*     */     } 
 /*     */   }
@@ -208,13 +212,16 @@
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */ 
+/*     */       
+/*     */     
 /*     */   
-/*     */   private static void town() {
+/*     */   public static void town() {
 /*     */     while (true) {
 /* 188 */       Action.cls();
+                
 /* 189 */       Ui.println("------------------------------------------------------------------");
 /* 190 */       Ui.println("                      WELCOME TO THE TOWN                         ");
+                Ui.town_pop();
 /* 191 */       Ui.println("--Score Info--");
 /* 192 */       Ui.println("     Kill Streak: " + Stats.kills);
 /* 193 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
@@ -230,7 +237,8 @@
 /* 203 */       Ui.println("3) Bank");
 /* 204 */       Ui.println("4) Shop");
 /* 205 */       Ui.println("5) Upgrade Health");
-/* 206 */       Ui.println("6) Back");
+                Ui.println("6) Bar");
+/* 206 */       Ui.println("7) Back");
 /* 207 */       Ui.println("------------------------------------------------------------------");
 /*     */       
 /* 209 */       int menuChoice = Action.getValidInt();
@@ -238,20 +246,27 @@
 /* 211 */       switch (menuChoice) {
 /*     */         case 1:
 /* 213 */           Casino.menu();
+                    break;
 /*     */         
 /*     */         case 2:
 /* 216 */           home();
+                    break;
 /*     */         
 /*     */         case 3:
 /* 219 */           Bank.menu();
+                    break;
 /*     */         
 /*     */         case 4:
 /* 222 */           Shop.menu();
+                    break;
 /*     */         
 /*     */         case 5:
 /* 225 */           Health.upgrade();
+                    break;
 /*     */         case 6:
-/*     */           break;
+                    Bar.menu();
+                  case 7:
+/*     */           return;
 /*     */       } 
 /*     */     } 
 /*     */   }
@@ -266,8 +281,10 @@
 /*     */   private static void home() {
 /*     */     while (true) {
 /* 241 */       Action.cls();
+                
 /* 242 */       Ui.println("------------------------------------------------------------------");
 /* 243 */       Ui.println("                          WELCOME HOME                            ");
+                Ui.home_pop();
 /* 244 */       Ui.println("--Score Info--");
 /* 245 */       Ui.println("     Kill Streak: " + Stats.kills);
 /* 246 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
@@ -294,31 +311,37 @@
 /* 267 */       switch (menuChoice) {
 /*     */         case 1:
 /* 269 */           Weapon.choose();
+                    break;
 /*     */         
 /*     */         case 2:
 /* 272 */           Armour.choose();
+                    break;
 /*     */         
 /*     */         case 3:
 /* 275 */           Chest.view();
+                    break;
 /*     */         
 /*     */         case 4:
 /* 278 */           Ach.view();
+                    break;
 /*     */         
 /*     */         case 5:
 /* 281 */           Stats.view();
+                    break;
 /*     */         
 /*     */         case 6:
 /* 284 */           About.view(true);
 /* 285 */           Ach.viewedAbout = true;
+                    break;
 /*     */         
 /*     */         case 7:
 /* 288 */           Settings.menu();
-/*     */         
+/*     */           break;
 /*     */         case 8:
 /* 291 */           Help.view();
 /*     */           break;
 /*     */         case 9:
-/*     */           break;
+/*     */           return;
 /*     */       } 
 /*     */     } 
 /*     */   }
@@ -354,6 +377,137 @@
 /* 327 */     Action.cls();
 /* 328 */     return "Easy";
 /*     */   }
+
+public static void battle_hotkey(){
+    int fightPath;
+    fightPath = Random.RInt(1,100);
+         
+         if (Weapon.get().getName().equals("Sniper")) {
+            if (fightPath <= 30) Enemy.get().dealDamage(); 
+            if (fightPath > 30) sniper.dealDam();  
+            return;
+           } 
+          if (fightPath <= 50) Enemy.get().dealDamage(); 
+         if (fightPath > 50) Weapon.get().dealDam();
+}
+public static void mainGameplay(){
+    /*     */     while (true) {
+/*     */       int fightPath;
+/*  78 */       if (Stats.kills > Stats.highScore) Stats.highScore = Stats.kills; 
+/*  79 */       Ach.check();
+/*  80 */       SaveAndLoad.save();
+/*  81 */       Action.cls();
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */       
+/*  87 */       Ui.println("Text-Fighter " + Version.getFull());
+/*  88 */       Ui.println("------------------------------------------------------------------");
+/*     */       Ui.Player();
+/*  90 */       if (Cheats.enabled()) {
+/*  91 */         Ui.println("CHEATS ACTIVATED");
+/*     */       }
+/*  93 */       Ui.println(Settings.godModeMsg());
+/*     */       
+/*  95 */       Ui.println("--Score Info--");
+/*  96 */       Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
+/*  97 */       Ui.println("     Kill Streak: " + Stats.kills);
+/*  98 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
+/*  99 */       Ui.println("--" + User.name() + "--");
+/* 100 */       Ui.println("     Health: " + Health.getStr());
+/* 101 */       Ui.println("     Coins: " + Coins.get());
+/* 102 */       Ui.println("     First-Aid kits: " + FirstAid.get());
+/* 103 */       Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+/* 104 */       Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
+/* 105 */       Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+/*     */       
+/* 107 */       Action.displayAmmo();
+/*     */       
+/* 109 */       Ui.println("--Enemy Info--");
+/* 110 */       Ui.println("     Enemy: " + Enemy.get().getName());
+/* 111 */       Ui.println("     Enemy Health: " + Enemy.get().getHeathStr());
+/* 112 */       Ui.println("------------------------------------------------------------------");
+/* 113 */       Ui.println("1) Go to battle");
+/* 114 */       Ui.println("2) Go Home");
+/* 115 */       Ui.println("3) Go to the town");
+/* 116 */       Ui.println("4) Use First-Aid kit");
+/* 117 */       Ui.println("5) Use Potion");
+/* 118 */       Ui.println("6) Use Insta-Health");
+/* 119 */       Ui.println("7) Use POWER");
+/* 120 */       Ui.println("8) Quit Game (Game will automatically be saved)");
+/* 121 */       Ui.println("------------------------------------------------------------------");
+/*     */       
+/* 123 */       switch (Action.getValidInt()) {
+/*     */         case 1:
+/* 125 */           battle_hotkey();
+                    int b_loop=0;
+                     while(b_loop!=1){
+                         Ui.println("press 1 to refight, press 2 to heal, press 3 for more option");
+                           switch(Action.getValidInt()){
+                                case 1:
+                                    battle_hotkey();
+                                   continue;
+                                case 2:
+                                    FirstAid.use();
+                                    continue;
+                                case 3: 
+                                default :
+                                    b_loop=1;
+                           }
+                    }
+                   
+/*     */         
+/*     */         
+/*     */         case 2:
+/* 136 */           home();
+                    break;
+/*     */         
+/*     */         case 3:
+/* 139 */           town();
+                    break;
+/*     */         
+/*     */         case 4:
+/* 142 */           FirstAid.use();
+/*     */         
+/*     */         case 5:
+/* 145 */           Action.cls();
+/* 146 */           Ui.println("Which potion would you like to use?");
+/* 147 */           Ui.println("1) Survival Potion");
+/* 148 */           Ui.println("2) Recovery Potion");
+/* 149 */           Ui.println("3) Back");
+/* 150 */           switch (Action.getValidInt()) {
+/*     */             case 1:
+/* 152 */               Potion.use("survival");
+/*     */               break;
+/*     */             case 2:
+/* 155 */               Potion.use("recovery");
+/*     */               break;
+/*     */             
+/*     */             case 3:
+                        Game.mainGameplay();
+/*     */               break;
+/*     */           } 
+/*     */         
+/*     */         
+/*     */         case 6:
+/* 164 */           InstaHealth.use();
+                    break;
+/*     */         
+/*     */         case 7:
+/* 167 */           Power.use();
+                    break;
+/*     */         
+/*     */         case 8:
+/*     */           return;
+/*     */         case 0:
+/* 172 */           Cheats.cheatGateway();
+/*     */         
+/*     */         case 99:
+/* 175 */           Debug.menu();
+/*     */       } 
+/*     */     } 
+}
 /*     */ }
 
 
