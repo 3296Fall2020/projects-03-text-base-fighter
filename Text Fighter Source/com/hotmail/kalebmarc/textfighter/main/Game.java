@@ -209,10 +209,45 @@
 /*     */     } 
 /*     */   }
 /*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
+/*     */
+
+    /*-----------------------------------------------------------------------------------------------*/
+        public static void estate(){
+            while (true) {
+                Action.cls();
+
+                Ui.println("------------------------------------------------------------------");
+                Ui.println("                 WELCOME TO THE MEIER ESTATE                      ");
+                Ui.println("--Score Info--");
+                Ui.println("     Kill Streak: " + Stats.kills);
+                Ui.println("     Highest Kill Streak: " + Stats.highScore);
+                Ui.println("--Player Info--");
+                Ui.println("     Health: " + Health.getStr());
+                Ui.println("     Coins: " + Coins.get());
+                Ui.println("     First-Aid kits: " + FirstAid.get());
+                Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+                Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+                Ui.println("------------------------------------------------------------------");
+                Ui.println("1) Go to the Manor");
+                Ui.println("2) Back");
+                Ui.println("------------------------------------------------------------------");
+
+                int menuChoice = Action.getValidInt();
+
+                switch(menuChoice){
+
+                    case 1:
+                        Manor.menu();
+                        break;
+
+                    case 2:
+                        return;
+
+                }//end of switch
+             }//end of while
+            }//end of estate
+    /*-----------------------------------------------------------------------------------------------*/
+    /*     */
 /*     */ 
 /*     */ 
 /*     */ 
@@ -282,11 +317,12 @@ public static void mainGameplay(){
 /* 113 */       Ui.println("1) Go to battle");
 /* 114 */       Ui.println("2) Go Home");
 /* 115 */       Ui.println("3) Go to the town");
-/* 116 */       Ui.println("4) Use First-Aid kit");
-/* 117 */       Ui.println("5) Use Potion");
-/* 118 */       Ui.println("6) Use Insta-Health");
-/* 119 */       Ui.println("7) Use POWER");
-/* 120 */       Ui.println("8) Quit Game (Game will automatically be saved)");
+                Ui.println("4) Go to Meier Estate");
+/* 116 */       Ui.println("5) Use First-Aid kit");
+/* 117 */       Ui.println("6) Use Potion");
+/* 118 */       Ui.println("7) Use Insta-Health");
+/* 119 */       Ui.println("8) Use POWER");
+/* 120 */       Ui.println("9) Quit Game (Game will automatically be saved)");
 /* 121 */       Ui.println("------------------------------------------------------------------");
 /*     */       
 /* 123 */       switch (Action.getValidInt()) {
@@ -309,11 +345,15 @@ public static void mainGameplay(){
 /*     */         case 3:
 /* 139 */           town();
                     break;
-/*     */         
+
 /*     */         case 4:
+                    estate();
+                    break;
+
+/*     */         case 5:
 /* 142 */           FirstAid.use();
 /*     */         
-/*     */         case 5:
+/*     */         case 6:
 /* 145 */           Action.cls();
 /* 146 */           Ui.println("Which potion would you like to use?");
 /* 147 */           Ui.println("1) Survival Potion");
@@ -333,15 +373,15 @@ public static void mainGameplay(){
 /*     */           } 
 /*     */         
 /*     */         
-/*     */         case 6:
+/*     */         case 7:
 /* 164 */           InstaHealth.use();
                     break;
 /*     */         
-/*     */         case 7:
+/*     */         case 8:
 /* 167 */           Power.use();
                     break;
 /*     */         
-/*     */         case 8:
+/*     */         case 9:
 /*     */           return;
 /*     */         case 0:
 /* 172 */           Cheats.cheatGateway();
