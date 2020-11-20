@@ -28,7 +28,8 @@ public class Tutorial {
         choice = Action.getValidInt();
         switch (choice){
             case 1:
-                combatTutorialPart1();
+                //combatTutorialPart1();
+                potionTutorial1();
                 break;
             default:
                 Ui.println("You have to press 1 to continue!");
@@ -111,7 +112,7 @@ public class Tutorial {
         } else {
             Ui.println("You did it! Defeated monsters give you gold to buy items and xp to level up!");
         }
-            Ui.println("This concludes the combat tutorial. To return to the main menu, press 1. See ya!");
+            Ui.println("This concludes the combat tutorial. To return to the main menu, press 1. To continue to the potion tutorial, press 2! See ya!");
             
             do {
             finalChoice = Action.getValidInt();
@@ -120,10 +121,39 @@ public class Tutorial {
                     Menu.load();
                     Action.cls();
                     break;
+                case 2:
+                    potionTutorial1();
+                    Action.cls();
+                    break;
+                default:
+                    Ui.println("You have to press 1 or 2 to continue!");
+                    break;
+                
+        } } while (finalChoice != 1);
+        }
+    
+        public static void potionTutorial1(){
+            Ui.println("You've taken a nasty bump from tbat goblin! In this game, health does not automatically regenerate. In order to heal, you need to use potions!");
+            Ui.println("Depending on your class you will start the game with a certain number of potions. There are four types of healing items.");
+            Ui.println("First Aid Kits heal you for twenty hit points. They're very cheap and good in the early game.");
+            Ui.println("Health potions come in two types: survival and recovery. Survival heal you by 25% of your max hp while recovery heals for 75%. However, Recovery is twice as expensive.");
+            Ui.println("Finally, InstaHealths are the most expensive of all, but they heal ALL of your HP! Use them whilel you're in a bind.");
+            int choice;
+            do {
+            choice = Action.getValidInt();
+            switch (choice){
+                case 1:
+                    Enemy.get().dealDamage();
+                    combatTutorialPart3();
+                    break;
                 default:
                     Ui.println("You have to press 1 to continue!");
                     break;
                 
-        } } while (finalChoice != 1);
+        } } while (choice != 1);
+        }
+        
+        public static void potionTutorial2(){
+            
         }
     }
