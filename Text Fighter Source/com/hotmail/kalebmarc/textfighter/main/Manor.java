@@ -101,6 +101,10 @@ public class Manor {
                     continue;
 
                 case 8:
+                    bathroom();
+                    continue;
+
+                case 9:
                     return;
 
             }//end of switch
@@ -400,5 +404,63 @@ public class Manor {
 
         }//end of while
     }//end of gallery
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void bathroom(){
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                BATHROOM               ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("It's a nice bathroom");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Urinate in the toilet");
+            Ui.println("2) Defecate in the toilet");
+            Ui.println("3) Wash your hands");
+            Ui.println("4) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("You feel relieved");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    Action.cls();
+                    Ui.println("You clogged the toilet.");
+                    Ui.println("UH-OH!");
+                    Ui.println("SHH! it was not your fault");
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    Action.cls();
+                    Ui.println("Good for you being hygienic! Gold star!");
+                    Action.pause();
+                    continue;
+
+                case 4:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+
+    }//end of bathroom
     /*-----------------------------------------------------------------------------------------------*/
 }//end of Manor
