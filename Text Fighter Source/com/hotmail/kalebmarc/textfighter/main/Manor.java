@@ -105,6 +105,10 @@ public class Manor {
                     continue;
 
                 case 9:
+                    library();
+                    continue;
+
+                case 10:
                     return;
 
             }//end of switch
@@ -462,5 +466,45 @@ public class Manor {
         }//end of while
 
     }//end of bathroom
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void library(){
+                while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                LIBRARY                ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Books");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Take a closer look at the painting");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("hi");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of library
     /*-----------------------------------------------------------------------------------------------*/
 }//end of Manor
