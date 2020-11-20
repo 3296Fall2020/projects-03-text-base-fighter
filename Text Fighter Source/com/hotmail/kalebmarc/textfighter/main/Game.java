@@ -12,6 +12,7 @@
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Settings;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Stats;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Xp;
+/*     */ import com.hotmail.kalebmarc.textfighter.player.Class;
 /*     */ import java.util.Scanner;
 /*     */ 
 /*     */ 
@@ -38,9 +39,13 @@
 /*     */   public static Weapon shotgun;
 /*     */   public static Weapon rifle;
 /*     */   public static Weapon sniper;
+/*     */   public static Weapon broadsword;
+/*     */   public static Weapon battleAxe;
 /*  41 */   public static Armour none = new Armour("None", 0, 0, 1);
 /*  42 */   public static Armour basic = new Armour("Basic", 400, 15, 5);
 /*  43 */   public static Armour advanced = new Armour("Advanced", 750, 30, 7);
+/*     */   public static Armour knight = new Armour("Knight", 100, 20, 1);
+/*     */   public static Armour warrior = new Armour("Warrior", 100, 10, 1);
 /*     */   
 /*  45 */   private static Scanner scan = new Scanner(System.in);
 /*     */ 
@@ -63,20 +68,152 @@
 /*  63 */     switch (choice) {
 /*     */       case 1:
 /*  65 */         if (SaveAndLoad.load())
-/*     */           break; 
+/*     */           break;
 /*  67 */       default: 
                     Settings.setDif(getDifficulty(), true, false);
-/*  68 */           Health.set(100, 100);
-/*  69 */           Enemy.encounterNew();
 /*  70 */           if (choice != 1) {
 /*  71 */           User.promptNameSelection();
 /*     */           }
                     mainGameplay();
 /*     */         break;
-                
+/*     */     } 
+/*     */
+/*     */     Action.cls();
+/*  53 */     Ui.println("____________________________________________");
+/*  54 */     Ui.println("|                                           |");
+/*  55 */     Ui.println("|            Choose your Class?             |");
+/*  57 */     Ui.println("|                                           |");
+/*  58 */     Ui.println("| 1) Knight                                 |");
+/*  59 */     Ui.println("| 2) Warrior                                |");
+/*  59 */     Ui.println("| 3) None                                   |");
+/*  60 */     Ui.println("|___________________________________________|");
+/*     */
+/*     */     switch (Action.getValidInt()){
+/*     */       case 1:
+/*     */           Class.choose("Knight", 110, broadsword, 3);
+/*     */           break;
+/*     */       case 2:
+/*     */           Class.choose("Warrior", 85, battleAxe, 4);
+/*     */           break;
+/*     */       case 3:
+/*     */           Class.choose("Deprived", 50, nothing, 0);
+/*     */           break;
 /*     */     }
-
-}
+/*     */     Class.startingClass();
+/*  69 */     Enemy.encounterNew();
+/*     */     
+/*     */     while (true) {
+/*     */       int fightPath;
+/*  78 */       if (Stats.kills > Stats.highScore) Stats.highScore = Stats.kills; 
+/*  79 */       Ach.check();
+/*  80 */       SaveAndLoad.save();
+/*  81 */       Action.cls();
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */       
+/*  87 */       Ui.println("Text-Fighter " + Version.getFull());
+/*  88 */       Ui.println("------------------------------------------------------------------");
+/*     */       
+/*  90 */       if (Cheats.enabled()) {
+/*  91 */         Ui.println("CHEATS ACTIVATED");
+/*     */       }
+/*  93 */       Ui.println(Settings.godModeMsg());
+/*     */       
+/*  95 */       Ui.println("--Score Info--");
+/*  96 */       Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
+/*  97 */       Ui.println("     Kill Streak: " + Stats.kills);
+/*  98 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
+/*  99 */       Ui.println("--" + User.name() + " the " + Class.getName() + "--");
+/* 100 */       Ui.println("     Health: " + Health.getStr());
+/* 101 */       Ui.println("     Coins: " + Coins.get());
+/* 102 */       Ui.println("     First-Aid kits: " + FirstAid.get());
+/* 103 */       Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+/* 104 */       Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
+/* 105 */       Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+/*     */       
+/* 107 */       Action.displayAmmo();
+/*     */       
+/* 109 */       Ui.println("--Enemy Info--");
+/* 110 */       Ui.println("     Enemy: " + Enemy.get().getName());
+/* 111 */       Ui.println("     Enemy Health: " + Enemy.get().getHeathStr());
+/* 112 */       Ui.println("------------------------------------------------------------------");
+/* 113 */       Ui.println("1) Go to battle");
+/* 114 */       Ui.println("2) Go Home");
+/* 115 */       Ui.println("3) Go to the town");
+/* 116 */       Ui.println("4) Use First-Aid kit");
+/* 117 */       Ui.println("5) Use Potion");
+/* 118 */       Ui.println("6) Use Insta-Health");
+/* 119 */       Ui.println("7) Use POWER");
+/* 120 */       Ui.println("8) Quit Game (Game will automatically be saved)");
+/* 121 */       Ui.println("------------------------------------------------------------------");
+/*     */       
+/* 123 */       switch (Action.getValidInt()) {
+/*     */         case 1:
+/* 125 */           fightPath = Random.RInt(100);
+/*     */           
+/* 127 */           if (Weapon.get().getName().equals("Sniper")) {
+/* 128 */             if (fightPath <= 30) Enemy.get().dealDamage(); 
+/* 129 */             if (fightPath > 30) sniper.dealDam();  continue;
+/*     */           } 
+/* 131 */           if (fightPath <= 50) Enemy.get().dealDamage(); 
+/* 132 */           if (fightPath > 50) Weapon.get().dealDam();
+/*     */           break;
+/*     */         
+/*     */         case 2:
+/* 136 */           home();
+/*     */           break;
+/*     */         case 3:
+/* 139 */           town();
+/*     */           break;
+/*     */         case 4:
+/* 142 */           FirstAid.use();
+/*     */           break;
+/*     */         case 5:
+/* 145 */           Action.cls();
+/* 146 */           Ui.println("Which potion would you like to use?");
+/* 147 */           Ui.println("1) Survival Potion");
+/* 148 */           Ui.println("2) Recovery Potion");
+/* 149 */           Ui.println("3) Back");
+/* 150 */           switch (Action.getValidInt()) {
+/*     */             case 1:
+/* 152 */               Potion.use("survival");
+/*     */               break;
+/*     */             case 2:
+/* 155 */               Potion.use("recovery");
+/*     */               break;
+/*     */             
+/*     */             case 3:
+/*     */               break;
+/*     */           break;    
+/*     */           } 
+/*     */         
+/*     */         
+/*     */         case 6:
+/* 164 */           InstaHealth.use();
+/*     */           break;
+/*     */         case 7:
+/* 167 */           Power.use();
+/*     */           break;
+/*     */         case 8:
+/*     */           return;
+/*     */         case 0:
+/* 172 */           Cheats.cheatGateway();
+/*     */           break;
+/*     */         case 99:
+/* 175 */           Debug.menu();
+/*     */            break;    
+/*     */       } 
+/*     */     } 
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */       
+/*     */     
 /*     */   
 /*     */   public static void town() {
 /*     */     while (true) {
