@@ -241,6 +241,18 @@
 /* 328 */     return "Easy";
 /*     */   }
 
+public static void battle_hotkey(){
+    int fightPath;
+    fightPath = Random.RInt(1,100);
+         
+         if (Weapon.get().getName().equals("Sniper")) {
+            if (fightPath <= 30) Enemy.get().dealDamage(); 
+            if (fightPath > 30) sniper.dealDam();  
+            return;
+           } 
+          if (fightPath <= 50) Enemy.get().dealDamage(); 
+         if (fightPath > 50) Weapon.get().dealDam();
+}
 public static void mainGameplay(){
     /*     */     while (true) {
 /*     */       int fightPath;
@@ -291,15 +303,23 @@ public static void mainGameplay(){
 /*     */       
 /* 123 */       switch (Action.getValidInt()) {
 /*     */         case 1:
-/* 125 */           fightPath = Random.RInt(1,100);
-/*     */           
-/* 127 */           if (Weapon.get().getName().equals("Sniper")) {
-/* 128 */             if (fightPath <= 30) Enemy.get().dealDamage(); 
-/* 129 */             if (fightPath > 30) sniper.dealDam();  continue;
-/*     */           } 
-/* 131 */           if (fightPath <= 50) Enemy.get().dealDamage(); 
-/* 132 */           if (fightPath > 50) Weapon.get().dealDam();
-                    break;
+/* 125 */           battle_hotkey();
+                    int b_loop=0;
+                     while(b_loop!=1){
+                         Ui.println("press 1 to refight, press 2 to heal, press 3 for more option");
+                           switch(Action.getValidInt()){
+                                case 1:
+                                    battle_hotkey();
+                                   continue;
+                                case 2:
+                                    FirstAid.use();
+                                    continue;
+                                case 3: 
+                                default :
+                                    b_loop=1;
+                           }
+                    }
+                   
 /*     */         
 /*     */         
 /*     */         case 2:
