@@ -7,6 +7,7 @@ package com.hotmail.kalebmarc.textfighter.main;
 
 import com.hotmail.kalebmarc.textfighter.item.Armour;
 import com.hotmail.kalebmarc.textfighter.item.InstaHealth;
+import com.hotmail.kalebmarc.textfighter.item.Power;
 import com.hotmail.kalebmarc.textfighter.player.Health;
 import java.util.Scanner;
 
@@ -29,8 +30,7 @@ public class Tutorial {
         choice = Action.getValidInt();
         switch (choice){
             case 1:
-                //combatTutorialPart1();
-                potionTutorial1();
+                combatTutorialPart1();
                 break;
             default:
                 Ui.println("You have to press 1 to continue!");
@@ -41,6 +41,7 @@ public class Tutorial {
     }
     
     public static void combatTutorialPart1(){
+        Action.cls();
         Weapon tutorialWeapon = new Weapon("fists", true, false, 0, 1, 10, 10, true, false);
         Ui.println("This mean, green goblin machine looks nasty! Luckily, you can fight!");
         Ui.println("Use the fight command to do damage! Press 1 to attack the enemy and enter when the attack finishes!");
@@ -113,7 +114,7 @@ public class Tutorial {
         } else {
             Ui.println("You did it! Defeated monsters give you gold to buy items and xp to level up!");
         }
-            Ui.println("This concludes the combat tutorial. To return to the main menu, press 1. To continue to the potion tutorial, press 2! See ya!");
+            Ui.println("This concludes the combat tutorial. To return to the main menu, press 1. To continue to the item tutorial, press 2! See ya!");
             
             do {
             finalChoice = Action.getValidInt();
@@ -134,6 +135,7 @@ public class Tutorial {
         }
     
         public static void potionTutorial1(){
+            Action.cls();
             Ui.println("You've taken a nasty bump from tbat goblin! In this game, health does not automatically regenerate. In order to heal, you need to use potions!");
             Ui.println("Depending on your class you will start the game with a certain number of potions. There are four types of healing items.");
             Ui.println("First Aid Kits heal you for twenty hit points. They're very cheap and good in the early game.");
@@ -157,6 +159,7 @@ public class Tutorial {
             Enemy.encounterTutorial();
             Health.set(5);
             InstaHealth.set(1, false);
+            Action.cls();
             Ui.println("Oh no! You've been ambushed by another goblin! And he cast a spell to set your health to five! If he attacks, he'll kill you!");
             Ui.println("Quick! Here's a Insta-Health! Hurry and use it!");
             int choice;
@@ -166,7 +169,7 @@ public class Tutorial {
                 case 1:
                     InstaHealth.use();
                     Enemy.get().dealDamage();
-                    potionTutorial3();
+                    powerTutorial();
                     break;
                 default:
                     Ui.println("You have to press 1 to continue!");
@@ -176,7 +179,45 @@ public class Tutorial {
             
         }
         
-        public static void potionTutorial3(){
+        public static void powerTutorial(){
+            Power.set(1, true);
+            Ui.println("Whew! That was a close one! We need to defeat this goblin. But how?");
+            Ui.println("Well, there's one more consumable in this game. It's called POWER (in all caps so you know it's good).");
+            Ui.println("POWERs are classified as weapons, but it's better to think of them as spells.");
+            Ui.println("They are VERY expensive you have to be level 4 to get them, but trust me, they're worth it.");
+            Ui.println("You just got a POWER. Use it on the goblin.");
+            int choice;
+            do {
+            choice = Action.getValidInt();
+            switch (choice){
+                case 1:
+                    Power.use();
+                    powerTutorial2();
+                    break;
+                default:
+                    Ui.println("You have to press 1 to continue!");
+                    break;
+                
+            } } while (choice != 1);
             
+        }
+        
+        public static void powerTutorial2(){
+            Ui.println("That's right! POWERs instantly kill enemies! Isn't that nice?");
+            Ui.println("Remeber, you need to be at a certian level and have a certain amount of money to buy items.");
+            Ui.println("This concludes the item tutorial. Press 1 to go back to the main menu.");
+            int finalChoice;
+            do {
+            finalChoice = Action.getValidInt();
+            switch (finalChoice){
+                case 1:
+                    Menu.load();
+                    Action.cls();
+                    break;
+                default:
+                    Ui.println("You have to press 1 to continue!");
+                    break;
+                
+        } } while (finalChoice != 1);
         }
     }
