@@ -6,6 +6,7 @@
 package com.hotmail.kalebmarc.textfighter.main;
 
 import com.hotmail.kalebmarc.textfighter.item.Armour;
+import com.hotmail.kalebmarc.textfighter.item.InstaHealth;
 import com.hotmail.kalebmarc.textfighter.player.Health;
 import java.util.Scanner;
 
@@ -143,8 +144,7 @@ public class Tutorial {
             choice = Action.getValidInt();
             switch (choice){
                 case 1:
-                    Enemy.get().dealDamage();
-                    combatTutorialPart3();
+                    potionTutorial2();
                     break;
                 default:
                     Ui.println("You have to press 1 to continue!");
@@ -154,6 +154,29 @@ public class Tutorial {
         }
         
         public static void potionTutorial2(){
+            Enemy.encounterTutorial();
+            Health.set(5);
+            InstaHealth.set(1, false);
+            Ui.println("Oh no! You've been ambushed by another goblin! And he cast a spell to set your health to five! If he attacks, he'll kill you!");
+            Ui.println("Quick! Here's a Insta-Health! Hurry and use it!");
+            int choice;
+            do {
+            choice = Action.getValidInt();
+            switch (choice){
+                case 1:
+                    InstaHealth.use();
+                    Enemy.get().dealDamage();
+                    potionTutorial3();
+                    break;
+                default:
+                    Ui.println("You have to press 1 to continue!");
+                    break;
+                
+            } } while (choice != 1);
+            
+        }
+        
+        public static void potionTutorial3(){
             
         }
     }
