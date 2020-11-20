@@ -120,9 +120,7 @@ public class Tutorial {
             finalChoice = Action.getValidInt();
             switch (finalChoice){
                 case 1:
-                    Menu.load();
-                    Action.cls();
-                    break;
+                    return;
                 case 2:
                     potionTutorial1();
                     Action.cls();
@@ -212,7 +210,6 @@ public class Tutorial {
             switch (finalChoice){
                 case 1:
                     Menu.load();
-                    Action.cls();
                     break;
                 default:
                     Ui.println("You have to press 1 to continue!");
