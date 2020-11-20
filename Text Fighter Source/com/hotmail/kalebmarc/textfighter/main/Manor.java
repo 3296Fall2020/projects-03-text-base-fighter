@@ -2,8 +2,8 @@ package com.hotmail.kalebmarc.textfighter.main;
 
 public class Manor {
 
-    public static void menu(){
-        while(true){
+    public static void menu() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("         WELCOME TO THE MANOR          ");
@@ -24,7 +24,7 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int manorMenu = Action.getValidInt();
-            switch (manorMenu){
+            switch (manorMenu) {
 
                 case 1:
                     Action.cls();
@@ -39,10 +39,10 @@ public class Manor {
         }//end of while
     }//end of menu
 
-/*-----------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
     //after you knock on the door and enter the manor
-    public static void enter(){
-        while(true){
+    public static void enter() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("         WELCOME TO THE MANOR          ");
@@ -57,7 +57,7 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println("1) Talk to "+NPC.getName("quest"));
+            Ui.println("1) Talk to " + NPC.getName("quest"));
             Ui.println("2) Go to Bedroom 1");
             Ui.println("3) Go to Bedroom 2");
             Ui.println("4) Go to Master Bedroom");
@@ -71,46 +71,42 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int manorMenu = Action.getValidInt();
-            switch (manorMenu){
+            switch (manorMenu) {
 
                 case 1:
-                    Action.cls();
                     NPCMenu();
-                    Action.pause();
                     continue;
                 case 2:
-                    Action.cls();
                     bedroom1();
-                    Action.pause();
                     continue;
 
                 case 3:
-                    Action.cls();
                     bedroom2();
-                    Action.pause();
                     continue;
 
                 case 4:
-                    Action.cls();
                     masterBedroom();
-                    Action.pause();
                     continue;
 
                 case 5:
-                    Action.cls();
                     garden();
-                    Action.pause();
                     continue;
 
                 case 6:
+                    kitchen();
+                    continue;
+
+                case 7:
                     return;
+
             }//end of switch
 
         }//end of while
     }//end of knock
-/*-----------------------------------------------------------------------------------------------*/
-    public static void NPCMenu(){
-        while(true){
+
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void NPCMenu() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("                ENTRANCE               ");
@@ -133,7 +129,7 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int choiceMenu = Action.getValidInt();
-            switch (choiceMenu){
+            switch (choiceMenu) {
 
                 case 1:
                     Action.cls();
@@ -148,9 +144,10 @@ public class Manor {
 
         }//end of while
     }//end of NPCMenu
-/*-----------------------------------------------------------------------------------------------*/
-    public static void bedroom1(){
-        while(true){
+
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void bedroom1() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("                BEDROOM  1             ");
@@ -173,7 +170,7 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int choiceMenu = Action.getValidInt();
-            switch (choiceMenu){
+            switch (choiceMenu) {
 
                 case 1:
                     Action.cls();
@@ -189,9 +186,9 @@ public class Manor {
         }//end of while
     }//end of bathroom1
 
-/*-----------------------------------------------------------------------------------------------*/
-    public static void bedroom2(){
-        while(true){
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void bedroom2() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("                BEDROOM  2             ");
@@ -214,7 +211,7 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int choiceMenu = Action.getValidInt();
-            switch (choiceMenu){
+            switch (choiceMenu) {
 
                 case 1:
                     Action.cls();
@@ -230,9 +227,9 @@ public class Manor {
         }//end of while
     }//end of bathroom2
 
-/*-----------------------------------------------------------------------------------------------*/
-    public static void masterBedroom(){
-        while(true){
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void masterBedroom() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("            MASTER BEDROOM             ");
@@ -255,7 +252,7 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int choiceMenu = Action.getValidInt();
-            switch (choiceMenu){
+            switch (choiceMenu) {
 
                 case 1:
                     Action.cls();
@@ -271,9 +268,9 @@ public class Manor {
         }//end of while
     }//end of masterbedroom
 
-/*-----------------------------------------------------------------------------------------------*/
-    public static void garden(){
-         while(true){
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void garden() {
+        while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
             Ui.println("                GARDEN                 ");
@@ -296,7 +293,7 @@ public class Manor {
             Ui.println("---------------------------------------");
 
             int choiceMenu = Action.getValidInt();
-            switch (choiceMenu){
+            switch (choiceMenu) {
 
                 case 1:
                     Action.cls();
@@ -311,6 +308,46 @@ public class Manor {
 
         }//end of while
     } //end of garden
-/*-----------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void kitchen(){
+         while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                KITCHEN                ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Nice kitchen");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Make a sandwich");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
 
-/*-----------------------------------------------------------------------------------------------*/
+            int choiceMenu = Action.getValidInt();
+            switch (choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("They don't have the ingredients to make a sandwich");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    return;
+
+            }//end of switch
+
+        }//end of while
+    }//end of kitchen
+
+    /*-----------------------------------------------------------------------------------------------*/
+}//end of Manor
