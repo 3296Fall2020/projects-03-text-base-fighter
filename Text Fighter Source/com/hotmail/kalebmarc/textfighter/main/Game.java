@@ -252,6 +252,7 @@ public static void battle_hotkey(){
            } 
           if (fightPath <= 50) Enemy.get().dealDamage(); 
          if (fightPath > 50) Weapon.get().dealDam();
+        
 }
 public static void mainGameplay(){
     /*     */     while (true) {
@@ -306,6 +307,7 @@ public static void mainGameplay(){
 /* 125 */           battle_hotkey();
                     int b_loop=0;
                      while(b_loop!=1){
+                         
                          Ui.println("press 1 to refight, press 2 to heal, press 3 for more option");
                            switch(Action.getValidInt()){
                                 case 1:

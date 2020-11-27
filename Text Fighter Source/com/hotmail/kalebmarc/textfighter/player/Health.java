@@ -87,10 +87,13 @@ import com.hotmail.kalebmarc.textfighter.main.Game;
 /*  83 */     Ui.println("You lost " + damage + " health.");
 /*  84 */     Ui.println("----------------------------------------------------");
 /*  85 */     Ui.println("Your health: " + (health - damage));
+              lose(damage);
+              Ui.enemy_health_bar(Health.get(), Health.getOutOf());
 /*  86 */     Ui.println("Enemy health: " + Enemy.get().getHeathStr());
+              Ui.enemy_health_bar(Enemy.get().getHealth(), Enemy.get().getHealthMax());
 /*  87 */     Ui.println("----------------------------------------------------");
 /*  88 */     Action.pause();
-/*  89 */     lose(damage);
+/*  89 */     
 /*     */   }
 /*     */ 
 /*     */ 
