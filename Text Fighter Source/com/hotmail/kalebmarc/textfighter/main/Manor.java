@@ -1,5 +1,10 @@
 package com.hotmail.kalebmarc.textfighter.main;
 
+import com.hotmail.kalebmarc.textfighter.item.Armour;
+import com.hotmail.kalebmarc.textfighter.item.FirstAid;
+import com.hotmail.kalebmarc.textfighter.player.*;
+import com.hotmail.kalebmarc.textfighter.player.Class;
+
 import java.util.ArrayList;
 
 public class Manor {
@@ -702,20 +707,26 @@ public class Manor {
 
                 case 1:
                     Action.cls();
-                    Ui.println("You now own this: " +scythe.owns());
+                    scythe.owns();
+                    Ui.println("You now equipped "+scythe.getName());
                     Action.pause();
-                    continue;
+                    fightBoss();
+                    //continue;
 
                 case 2:
                     Action.cls();
-                    Ui.println("You now own this: "+fireSword.owns());
+                    fireSword.owns();
+                    Ui.println("You now equipped "+fireSword.getName());
                     Action.pause();
-                    continue;
+                    fightBoss();
+                    //continue;
 
                 case 3:
                     Action.cls();
-                    Ui.println("You now own this: "+morningStar.owns());
+                    morningStar.owns();
+                    Ui.println("You now equipped "+morningStar.getName());
                     Action.pause();
+                    fightBoss();
 
                 case 4:
                     return;
@@ -726,4 +737,74 @@ public class Manor {
     }//end of rareWeapons
 
     /*-----------------------------------------------------------------------------------------------*/
+    public static void fightBoss(){
+        Enemy displacer_beast = new Enemy("Displacer Beast", 400, 1000, 3000, 10, 50, 5000, true, true );
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("           DISPLACER BEAST             ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("--Score Info--");
+            Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
+            Ui.println("     Kill Streak: " + Stats.kills);
+            Ui.println("     Highest Kill Streak: " + Stats.highScore);
+            Ui.println("--" + User.name() + " the " + Class.getName() + "--");
+            Ui.println("     Health: " + Health.getStr());
+            Ui.println("     Coins: " + Coins.get());
+            Ui.println("     First-Aid kits: " + FirstAid.get());
+            Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+            Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
+            Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+            Ui.println("--Enemy Info--");
+            Ui.println("     Enemy: " + displacer_beast.getName());
+            Ui.println("     Enemy Health: " + displacer_beast.getHeathStr());
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Attack");
+            Ui.println("2) Shield");
+            Ui.println("3) Potion");
+            Ui.println("4) Run");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+            int choiceMenu = Action.getValidInt();
+
+            switch(choiceMenu) {
+
+                case 1:
+                    Action.cls();
+                    Ui.println("You did damage ");
+                    Action.pause();
+                    continue;
+
+                case 2:
+                    Action.cls();
+                    Ui.println("You shielded");
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    Action.cls();
+                    Ui.println("You healed");
+                    Action.pause();
+
+                case 4:
+                    return;
+            }//end of switch
+
+
+        }//end of while
+
+    }//end of fightBoss
+    /*-----------------------------------------------------------------------------------------------*/
+
 }//end of Manor

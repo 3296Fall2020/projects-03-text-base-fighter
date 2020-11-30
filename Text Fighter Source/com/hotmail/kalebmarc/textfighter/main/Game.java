@@ -106,13 +106,13 @@
 /*     */       case 5:	
 /*     */           Class.choose("Deprived", 50, nothing, 0);	
 /*     */           break;	
-/*     */     }	/*     */     }
+/*     */     }	/*     */     }//end of switch
 /*     */     Class.startingClass();	
-/*  69 */     Enemy.encounterNew();	}
+/*  69 */     Enemy.encounterNew();	//}//end of start
 /*     */     mainGameplay();  
 /*     */     }
 
-}
+//}
 /*     */   
 /*     */   public static void town() {
 /*     */     while (true) {
@@ -168,7 +168,7 @@
 /*     */           return;
 /*     */       } 
 /*     */     } 
-/*     */   }
+/*     */   }//end of town
 /*     */ 
 /*     */ public static void battle_hotkey(){	
               int fightPath;	
@@ -181,7 +181,7 @@
            } 	
           if (fightPath <= 50) Enemy.get().dealDamage(); 	
          if (fightPath > 50) Weapon.get().dealDam();	
-}
+}//end of hotkey
 /*     */ 
 /*     */ 
 /*     */ 
@@ -321,7 +321,7 @@
 /*     */     } 
 /* 327 */     Action.cls();
 /* 328 */     return "Easy";
-/*     */   }
+/*     */   }//end of getDifficulty
 
 public static void mainGameplay(){
     /*     */     while (true) {
@@ -444,12 +444,13 @@ public static void mainGameplay(){
 /* 175 */           Debug.menu();
 /*     */       } 
 /*     */     } 
-}
-/*     */ }
+}//end of Gameplay
+/*     */
+        }//end of Game
 
 
 /* Location:              C:\Users\User\Documents\Text-Base Fighter\Text-Fighter.jar!\com\hotmail\kalebmarc\textfighter\main\Game.class
  * Java compiler version: 7 (51.0)
  * JD-Core Version:       1.1.3
 
-/* 
+*/
