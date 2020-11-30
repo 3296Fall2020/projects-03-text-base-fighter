@@ -707,26 +707,32 @@ public class Manor {
 
                 case 1:
                     Action.cls();
-                    scythe.owns();
                     Ui.println("You now equipped "+scythe.getName());
                     Action.pause();
-                    fightBoss();
-                    //continue;
+
+                    if(scythe.owns() == true) {
+                        fightBoss();
+                    }//end of if
+
 
                 case 2:
                     Action.cls();
-                    fireSword.owns();
                     Ui.println("You now equipped "+fireSword.getName());
                     Action.pause();
-                    fightBoss();
-                    //continue;
+
+                    if(fireSword.owns() == true) {
+                        fightBoss();
+                    }//end of if
+
 
                 case 3:
                     Action.cls();
-                    morningStar.owns();
                     Ui.println("You now equipped "+morningStar.getName());
                     Action.pause();
-                    fightBoss();
+
+                    if(morningStar.owns() == true) {
+                        fightBoss();
+                    }//end of if
 
                 case 4:
                     return;
@@ -738,12 +744,13 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void fightBoss(){
-        Enemy displacer_beast = new Enemy("Displacer Beast", 400, 1000, 3000, 10, 50, 5000, true, true );
+        //Enemy displacer_beast = new Enemy("Displacer Beast", 300, 1000, 3000, 10, 50, 5000, true, true );
+        Enemy.encounterBoss();
 
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
-            Ui.println("           DISPLACER BEAST             ");
+            Ui.println("         DISPLACER BEAST (BOSS)        ");
             Ui.println();
             Ui.println();
             Ui.println();
@@ -760,8 +767,8 @@ public class Manor {
             Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
             Ui.println("     Equipped Weapon: " + Weapon.get().getName());
             Ui.println("--Enemy Info--");
-            Ui.println("     Enemy: " + displacer_beast.getName());
-            Ui.println("     Enemy Health: " + displacer_beast.getHeathStr());
+            Ui.println("     Enemy: " + Enemy.get().getName());
+            Ui.println("     Enemy Health: " + Enemy.get().getHeathStr());
             Ui.println();
             Ui.println();
             Ui.println();
@@ -770,7 +777,7 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println("1) Attack");
-            Ui.println("2) Shield");
+            Ui.println("2) First Aid Kit");
             Ui.println("3) Potion");
             Ui.println("4) Run");
             Ui.println();
@@ -782,20 +789,34 @@ public class Manor {
 
                 case 1:
                     Action.cls();
-                    Ui.println("You did damage ");
+                    Weapon.get().dealDam();
                     Action.pause();
                     continue;
 
                 case 2:
                     Action.cls();
-                    Ui.println("You shielded");
+                    FirstAid.use();
                     Action.pause();
                     continue;
 
                 case 3:
                     Action.cls();
-                    Ui.println("You healed");
-                    Action.pause();
+                    Ui.println("Which potion would you like to use?");
+                    Ui.println("1) Survival Potion");
+                    Ui.println("2) Recovery Potion");
+                    Ui.println("3) Back");
+                    switch (Action.getValidInt()) {
+                        case 1:
+                            Potion.use("survival");
+                            break;
+                        case 2:
+                            Potion.use("recovery");
+                            break;
+
+                        case 3:
+                            fightBoss();
+                            break;
+                        }//end of switch
 
                 case 4:
                     return;

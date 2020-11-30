@@ -182,6 +182,14 @@
                 Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
                 
             }
+
+            //making the boss for the manor
+            public static void encounterBoss(){
+
+                current = new Enemy("Displacer Beast", 300, 1000, 3000, 10, 50, 5000, true, true );
+                current.health = current.healthMax;
+                Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
+            }//end of encounterBoss
 /*     */ 
 /*     */   
 /*     */   public void viewAbout() {
