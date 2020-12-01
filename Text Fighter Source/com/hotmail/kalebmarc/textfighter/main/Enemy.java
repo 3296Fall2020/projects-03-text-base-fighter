@@ -186,7 +186,7 @@
             //making the boss for the manor
             public static void encounterBoss(){
 
-                current = new Enemy("Displacer Beast", 1, 1000, 3000, 5, 20, 2000, false, false );
+                current = new Enemy("Displacer Beast", 200, 1000, 3000, 5, 20, 2000, false, false );
                 current.health = current.healthMax;
                 Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
             }//end of encounterBoss

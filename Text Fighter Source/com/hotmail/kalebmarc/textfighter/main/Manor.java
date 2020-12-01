@@ -781,7 +781,7 @@ public class Manor {
             Ui.println("1) Attack");
             Ui.println("2) First Aid Kit");
             Ui.println("3) Potion");
-            Ui.println("4) Run");
+            Ui.println("4) Back");
             Ui.println();
             Ui.println("---------------------------------------");
 
@@ -797,8 +797,11 @@ public class Manor {
                             Weapon.get().dealDam();
                     }//end of if
 
-                    ending();
-                    continue;
+                    else {
+                        ending();
+                    }//end of else
+
+                   // continue;
 
                 case 2:
                     Action.cls();
@@ -815,16 +818,16 @@ public class Manor {
                     switch (Action.getValidInt()) {
                         case 1:
                             Potion.use("survival");
-                            break;
+                            continue;
                         case 2:
                             Potion.use("recovery");
-                            break;
+                            continue;
 
                         case 3:
-                            //fightBoss();
-                            return;
+                            continue;
 
                         }//end of switch
+                        break;
 
                 case 4:
                     library();
