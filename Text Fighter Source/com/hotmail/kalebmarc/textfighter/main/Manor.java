@@ -709,10 +709,9 @@ public class Manor {
                     Action.cls();
                     Ui.println("You now equipped "+scythe.getName());
                     Action.pause();
+                    fightBoss();
+                    continue;
 
-                    if(scythe.owns() == true) {
-                        fightBoss();
-                    }//end of if
 
 
                 case 2:
@@ -724,6 +723,7 @@ public class Manor {
                         fightBoss();
                     }//end of if
 
+                    continue;
 
                 case 3:
                     Action.cls();
@@ -733,6 +733,8 @@ public class Manor {
                     if(morningStar.owns() == true) {
                         fightBoss();
                     }//end of if
+
+                    continue;
 
                 case 4:
                     return;
@@ -790,24 +792,13 @@ public class Manor {
 
                 case 1:
 
-                while(Enemy.get().getHealth() > 0 && Health.get() > 0) {
-                    int fightPath = Random.RInt(1, 100);
+                    if((Health.get() > 0) && (Enemy.get().getHealth() > 0)) {
+                            Enemy.get().dealDamage();
+                            Weapon.get().dealDam();
+                    }//end of if
 
-
-                    if (fightPath <= 50) {
-                        Enemy.get().dealDamage();
-                        Ui.println("You took damage");
-                        continue;
-                    } //end of if
-
-                    else {
-                        Weapon.get().dealDam();
-                    }//end of else
-
-                    break;
-
-                    }//end of while
-
+                    ending();
+                    continue;
 
                 case 2:
                     Action.cls();
@@ -830,8 +821,9 @@ public class Manor {
                             break;
 
                         case 3:
-                            fightBoss();
-                            break;
+                            //fightBoss();
+                            return;
+
                         }//end of switch
 
                 case 4:
@@ -839,13 +831,60 @@ public class Manor {
                     return;
             }//end of switch
 
-
         }//end of while
 
     }//end of fightBoss
     /*-----------------------------------------------------------------------------------------------*/
     public static void ending(){
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                  AUTO                 ");
+            Ui.println();
+            Ui.println(" QUEST COMPLETED");
+            Ui.println();
+            Ui.println();
+            Ui.println("--Score Info--");
+            Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
+            Ui.println("     Kill Streak: " + Stats.kills);
+            Ui.println("     Highest Kill Streak: " + Stats.highScore);
+            Ui.println("--" + User.name() + " the " + Class.getName() + "--");
+            Ui.println("     Health: " + Health.getStr());
+            Ui.println("     Coins: " + Coins.get());
+            Ui.println("     First-Aid kits: " + FirstAid.get());
+            Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+            Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
+            Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Thank you so much, as a thanks please take the weapon as my gratitude");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) You're welcome!");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
 
+
+            int choiceMenu = Action.getValidInt();
+
+            switch(choiceMenu) {
+
+                case 1:
+                   Action.cls();
+                   Ui.println("Hope to see you again!");
+                   Action.pause();
+                   continue;
+
+                case 2:
+                    menu();
+                    return;
+            }//end of switch
+
+
+        }//end of while
     }//end of ending
 
 }//end of Manor
