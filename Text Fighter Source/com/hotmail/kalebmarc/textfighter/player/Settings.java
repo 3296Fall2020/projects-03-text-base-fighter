@@ -172,6 +172,10 @@
 /* 172 */       Game.shotgun = new Weapon("Shotgun", 1, 12, true, 375, 2, 9, 60.0D, firstInit, changeDif);
 /* 173 */       Game.rifle = new Weapon("Rifle", 1, 18, true, 275, 1, 5, 10.0D, firstInit, changeDif);
 /* 174 */       Game.sniper = new Weapon("Sniper", 1, 10, true, 700, 2, 7, 0.0D, firstInit, changeDif);
+/*     */       Game.broadsword = new Weapon("BroadSword", true, false, 20, 1, 5, 15, firstInit, changeDif);
+/*     */       Game.battleAxe = new Weapon("Battle Axe", true, false, 20, 1, 10, 20, firstInit, changeDif);
+/*     */       Game.dagger = new Weapon("Dagger", true, false, 20, 1, 5, 30, firstInit, changeDif);
+/*     */       Game.mace = new Weapon("Mace", true, false, 20, 1, 10, 15, firstInit, changeDif);
 /*     */ 
 /*     */       
 /* 177 */       Power.price = 25;
@@ -216,6 +220,10 @@
 /* 216 */       Game.shotgun = new Weapon("Shotgun", 1, 12, true, 415, 2, 9, 60.0D, firstInit, changeDif);
 /* 217 */       Game.rifle = new Weapon("Rifle", 1, 18, true, 300, 1, 5, 10.0D, firstInit, changeDif);
 /* 218 */       Game.sniper = new Weapon("Sniper", 1, 10, true, 750, 2, 7, 0.0D, firstInit, changeDif);
+/*     */       Game.broadsword = new Weapon("BroadSword", true, false, 10, 1, 5, 15, firstInit, changeDif);
+/*     */       Game.battleAxe = new Weapon("Battle Axe", true, false, 10, 1, 10, 20, firstInit, changeDif);
+/*     */       Game.dagger = new Weapon("Dagger", true, false, 10, 1, 5, 30, firstInit, changeDif);
+/*     */       Game.mace = new Weapon("Mace", true, false, 10, 1, 10, 15, firstInit, changeDif);
 /*     */ 
 /*     */       
 /* 221 */       Power.price = 75;
@@ -244,8 +252,8 @@
 /* 244 */     Potion.set("survival", 2, false);
 /* 245 */     Potion.set("recovery", 2, false);
 /* 246 */     Xp.setAll(0, 500, 1);
-/* 247 */     Game.none.setOwns(true);
-/* 248 */     Game.none.equipSilent();
+/* 247 */     //Game.none.setOwns(true);
+/* 248 */     //Game.none.equipSilent();
 /*     */   }
 /*     */ 
 /*     */ 

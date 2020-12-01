@@ -82,8 +82,10 @@
 /*     */     Ui.victory_pop();
 /*  83 */     Ui.popup("You have defeated an enemy! You've found " + tempCoin + " coins, and " + this.xp + "Xp!", "You've defeated an enemy!", -1);
 /*     */ 
-/*     */     
-/*  86 */     testFoundPipe();
+/*     */     if (!(current.getName().equals("goblin"))){
+                    testFoundPipe();
+                }
+/*  86 */     
 /*  87 */     Coins.set(tempCoin, true);
 /*  88 */     switch (tempHealth) {
 /*     */       case 0:

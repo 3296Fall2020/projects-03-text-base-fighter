@@ -18,13 +18,14 @@ import com.hotmail.kalebmarc.textfighter.main.Enemy;
 /*     */   private boolean owns;
 /*     */   private boolean equipped;
 /*     */   private boolean viewed;
-/*  20 */   private static ArrayList<Armour> armours = new ArrayList<>(3);
+/*  20 */   private static ArrayList<Armour> armours = new ArrayList<>(5);
 /*     */   
 /*     */   public Armour(String name, int price, int damResist, int level) {
 /*  23 */     this.name = name;
 /*  24 */     this.price = price;
 /*  25 */     this.damResist = damResist;
 /*  26 */     this.level = level;
+/*     */     this.equipped = false;
 /*  27 */     armours.add(this);
 /*     */   }
 /*     */   public void setName(String name) {
