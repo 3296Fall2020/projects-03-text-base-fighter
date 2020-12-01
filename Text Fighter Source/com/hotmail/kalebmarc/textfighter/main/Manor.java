@@ -744,7 +744,7 @@ public class Manor {
 
     /*-----------------------------------------------------------------------------------------------*/
     public static void fightBoss(){
-        //Enemy displacer_beast = new Enemy("Displacer Beast", 300, 1000, 3000, 10, 50, 5000, true, true );
+
         Enemy.encounterBoss();
 
         while (true) {
@@ -783,15 +783,31 @@ public class Manor {
             Ui.println();
             Ui.println("---------------------------------------");
 
+
             int choiceMenu = Action.getValidInt();
 
             switch(choiceMenu) {
 
                 case 1:
-                    Action.cls();
-                    Weapon.get().dealDam();
-                    Action.pause();
-                    continue;
+
+                while(Enemy.get().getHealth() > 0 && Health.get() > 0) {
+                    int fightPath = Random.RInt(1, 100);
+
+
+                    if (fightPath <= 50) {
+                        Enemy.get().dealDamage();
+                        Ui.println("You took damage");
+                        continue;
+                    } //end of if
+
+                    else {
+                        Weapon.get().dealDam();
+                    }//end of else
+
+                    break;
+
+                    }//end of while
+
 
                 case 2:
                     Action.cls();
@@ -819,6 +835,7 @@ public class Manor {
                         }//end of switch
 
                 case 4:
+                    library();
                     return;
             }//end of switch
 
@@ -827,5 +844,8 @@ public class Manor {
 
     }//end of fightBoss
     /*-----------------------------------------------------------------------------------------------*/
+    public static void ending(){
+
+    }//end of ending
 
 }//end of Manor
