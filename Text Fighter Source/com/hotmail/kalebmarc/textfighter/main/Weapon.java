@@ -191,7 +191,9 @@
 /* 190 */     Ui.println("You dealt " + damageDealt + " damage with a " + this.name);
 /* 191 */     Ui.println("----------------------------------------------------");
 /* 192 */     Ui.println("Your health: " + Health.getStr());
+              Ui.enemy_health_bar(Health.get(), Health.getOutOf());
 /* 193 */     Ui.println("Enemy health: " + Enemy.get().getHeathStr());
+              Ui.enemy_health_bar(Enemy.get().getHealth(), Enemy.get().getHealthMax());
 /* 194 */     Ui.println("----------------------------------------------------");
 /*     */     
 /* 196 */     Action.pause();

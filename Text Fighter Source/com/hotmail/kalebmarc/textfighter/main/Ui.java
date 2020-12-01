@@ -3,6 +3,8 @@
 /*    */
  /*    */ import java.util.Scanner;
 /*    */ import javax.swing.JOptionPane;
+         import com.hotmail.kalebmarc.textfighter.player.Health;
+         import static java.lang.Math.sqrt;
 
 /*    */
  /*    */
@@ -52,6 +54,34 @@
     /*    */ public static void println() {
         /* 42 */ System.out.println();
         /*    */    }
+            public static void print_health_bar(){
+                int current_health = Health.get();
+                double health_percent = (current_health / 100.0)*10;
+                int bar =(int) Math.floor(health_percent);
+                String out="[";
+                for(int i=0; i<bar;i++){
+                    out+="#";
+                }
+                for(int i=0; i<(10-bar);i++){
+                    out+="*";
+                }
+                out +="]";
+                System.out.println(out);
+            }
+            public static void enemy_health_bar(int current, int max){
+                double health_percent = (current / (double)max)*10;
+                int bar =(int) Math.floor(health_percent);
+                String out="[";
+                for(int i=0; i<bar;i++){
+                    out+="#";
+                }
+                for(int i=0; i<(10-bar);i++){
+                    out+="*";
+                }
+                out +="]";
+                System.out.println(out);
+            }
+            
 
     /*    */
  /*    */
