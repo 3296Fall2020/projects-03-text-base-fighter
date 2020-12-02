@@ -797,11 +797,8 @@ public class Manor {
                             Weapon.get().dealDam();
                     }//end of if
 
-                    else {
-                        ending();
-                    }//end of else
 
-                   // continue;
+                    continue;
 
                 case 2:
                     Action.cls();
@@ -830,7 +827,6 @@ public class Manor {
                         break;
 
                 case 4:
-                    library();
                     return;
             }//end of switch
 
@@ -839,6 +835,7 @@ public class Manor {
     }//end of fightBoss
     /*-----------------------------------------------------------------------------------------------*/
     public static void ending(){
+
         while (true) {
             Action.cls();
             Ui.println("---------------------------------------");
@@ -864,8 +861,7 @@ public class Manor {
             Ui.println("Thank you so much, as a thanks please take the weapon as my gratitude");
             Ui.println();
             Ui.println();
-            Ui.println();
-            Ui.println("1) You're welcome!");
+            Ui.println("1) Woo");
             Ui.println("2) Back");
             Ui.println();
             Ui.println("---------------------------------------");
@@ -876,13 +872,13 @@ public class Manor {
             switch(choiceMenu) {
 
                 case 1:
-                   Action.cls();
-                   Ui.println("Hope to see you again!");
-                   Action.pause();
-                   continue;
+                  Action.cls();
+                  Ui.println("");
+                  Action.pause();
+                  continue;
 
                 case 2:
-                    menu();
+                    Game.mainGameplay();
                     return;
             }//end of switch
 
