@@ -192,7 +192,7 @@
 
                 current = new Enemy("Displacer Beast", 10, 1000, 3000, 5, 20, 2000, false, false );
                 current.health = current.healthMax;
-                Ui.popup("You have encountered the boss" + current.getName(), "Encounter", 1);
+                Ui.popup("You have encountered the boss " + current.getName(), "Encounter", 1);
             }//end of encounterBoss
 /*     */ 
 /*     */   

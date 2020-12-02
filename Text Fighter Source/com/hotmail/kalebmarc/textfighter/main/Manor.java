@@ -673,9 +673,7 @@ public class Manor {
     //creating a rare items
     private static void rareWeapons(){
 
-        Weapon scythe = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
-        Weapon fireSword = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
-        Weapon morningStar = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
+
 
         while (true) {
             Action.cls();
@@ -694,9 +692,9 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println("1) "+scythe.getName());
-            Ui.println("2) "+fireSword.getName());
-            Ui.println("3) "+morningStar.getName());
+            Ui.println("1) Scythe");
+            Ui.println("2) Fire Sword");
+            Ui.println("3) Morning Star");
             Ui.println("4) Back");
             Ui.println();
             Ui.println("---------------------------------------");
@@ -706,35 +704,32 @@ public class Manor {
             switch(choiceMenu) {
 
                 case 1:
+                    Weapon scythe = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
                     Action.cls();
                     Ui.println("You now equipped "+scythe.getName());
                     Action.pause();
                     fightBoss();
-                    continue;
+                    break;
 
 
 
                 case 2:
+                    Weapon fireSword = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
                     Action.cls();
                     Ui.println("You now equipped "+fireSword.getName());
                     Action.pause();
+                    fightBoss();
 
-                    if(fireSword.owns() == true) {
-                        fightBoss();
-                    }//end of if
-
-                    continue;
+                    break;
 
                 case 3:
+                    Weapon morningStar = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
                     Action.cls();
                     Ui.println("You now equipped "+morningStar.getName());
                     Action.pause();
+                    fightBoss();
 
-                    if(morningStar.owns() == true) {
-                        fightBoss();
-                    }//end of if
-
-                    continue;
+                    break;
 
                 case 4:
                     return;
@@ -827,6 +822,7 @@ public class Manor {
                         break;
 
                 case 4:
+                    library();
                     return;
             }//end of switch
 
@@ -878,7 +874,7 @@ public class Manor {
                   continue;
 
                 case 2:
-                    Game.mainGameplay();
+                    library();
                     return;
             }//end of switch
 
