@@ -85,6 +85,7 @@
 /*     */     if (!(current.getName().equals("goblin"))){
                     testFoundPipe();
                 }
+
 /*  86 */     
 /*  87 */     Coins.set(tempCoin, true);
 /*  88 */     switch (tempHealth) {
@@ -105,7 +106,10 @@
                   return;
               }
 /*     */ 
-/*     */     
+/*     */     if(Enemy.get().name.equals("Displacer Beast") && Enemy.get().getHealth() <= 0){
+                Manor.ending();
+              }//end of if
+
 /* 104 */     Ach.getEnemyAch(get());
 /*     */     
 /* 106 */     encounterNew();
@@ -182,6 +186,14 @@
                 Ui.popup("You have encountered a " + current.getName(), "Encounter", 1);
                 
             }
+
+            //making the boss for the manor
+            public static void encounterBoss(){
+
+                current = new Enemy("Displacer Beast", 200, 1000, 3000, 5, 20, 2000, false, false );
+                current.health = current.healthMax;
+                Ui.popup("You have encountered the boss " + current.getName(), "Encounter", 1);
+            }//end of encounterBoss
 /*     */ 
 /*     */   
 /*     */   public void viewAbout() {

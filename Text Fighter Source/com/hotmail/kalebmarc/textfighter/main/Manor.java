@@ -1,5 +1,10 @@
 package com.hotmail.kalebmarc.textfighter.main;
 
+import com.hotmail.kalebmarc.textfighter.item.Armour;
+import com.hotmail.kalebmarc.textfighter.item.FirstAid;
+import com.hotmail.kalebmarc.textfighter.player.*;
+import com.hotmail.kalebmarc.textfighter.player.Class;
+
 import java.util.ArrayList;
 
 public class Manor {
@@ -668,9 +673,7 @@ public class Manor {
     //creating a rare items
     private static void rareWeapons(){
 
-        Weapon scythe = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
-        Weapon fireSword = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
-        Weapon morningStar = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
+
 
         while (true) {
             Action.cls();
@@ -689,9 +692,9 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println("1) "+scythe.getName());
-            Ui.println("2) "+fireSword.getName());
-            Ui.println("3) "+morningStar.getName());
+            Ui.println("1) Scythe");
+            Ui.println("2) Fire Sword");
+            Ui.println("3) Morning Star");
             Ui.println("4) Back");
             Ui.println();
             Ui.println("---------------------------------------");
@@ -701,21 +704,62 @@ public class Manor {
             switch(choiceMenu) {
 
                 case 1:
-                    Action.cls();
-                    Ui.println("You now own this: " +scythe.owns());
-                    Action.pause();
-                    continue;
+
+                    if(Weapon.get().getName().equals("Fire Sword") || Weapon.get().getName().equals("Morning Star")){
+                        Action.cls();
+                        Ui.println("Sorry you already have a "+Weapon.get().getName());
+                        Action.pause();
+                    }
+
+                    else {
+                        Weapon.scythe();
+                        Action.cls();
+                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Action.pause();
+                    }//enf of else
+
+                    fightBoss();
+
+                    break;
+
+
 
                 case 2:
-                    Action.cls();
-                    Ui.println("You now own this: "+fireSword.owns());
-                    Action.pause();
-                    continue;
+
+                    if(Weapon.get().getName().equals("Scythe") || Weapon.get().getName().equals("Morning Star")){
+                        Action.cls();
+                        Ui.println("Sorry you already have a "+Weapon.get().getName());
+                        Action.pause();
+                    }
+
+                    else {
+                        Weapon.fireSword();
+                        Action.cls();
+                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Action.pause();
+                    }
+                    fightBoss();
+
+                    break;
 
                 case 3:
-                    Action.cls();
-                    Ui.println("You now own this: "+morningStar.owns());
-                    Action.pause();
+
+                    if(Weapon.get().getName().equals("Scythe") || Weapon.get().getName().equals("Fire Sword")){
+                        Action.cls();
+                        Ui.println("Sorry you already have a "+Weapon.get().getName());
+                        Action.pause();
+                    }//end of if
+
+                    else {
+                        Weapon.morningStar();
+                        Action.cls();
+                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Action.pause();
+                    }//enf of else
+
+                    fightBoss();
+
+                    break;
 
                 case 4:
                     return;
@@ -726,4 +770,145 @@ public class Manor {
     }//end of rareWeapons
 
     /*-----------------------------------------------------------------------------------------------*/
+    public static void fightBoss(){
+
+        Enemy.encounterBoss();
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("         DISPLACER BEAST (BOSS)        ");
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("--Score Info--");
+            Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
+            Ui.println("     Kill Streak: " + Stats.kills);
+            Ui.println("     Highest Kill Streak: " + Stats.highScore);
+            Ui.println("--" + User.name() + " the " + Class.getName() + "--");
+            Ui.println("     Health: " + Health.getStr());
+            Ui.println("     Coins: " + Coins.get());
+            Ui.println("     First-Aid kits: " + FirstAid.get());
+            Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+            Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
+            Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+            Ui.println("--Enemy Info--");
+            Ui.println("     Enemy: " + Enemy.get().getName());
+            Ui.println("     Enemy Health: " + Enemy.get().getHeathStr());
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Attack");
+            Ui.println("2) First Aid Kit");
+            Ui.println("3) Potion");
+            Ui.println("4) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+
+            int choiceMenu = Action.getValidInt();
+
+            switch(choiceMenu) {
+
+                case 1:
+
+                    if((Health.get() > 0) && (Enemy.get().getHealth() > 0)) {
+                            Enemy.get().dealDamage();
+                            Weapon.get().dealDam();
+                    }//end of if
+
+
+                    continue;
+
+                case 2:
+                    Action.cls();
+                    FirstAid.use();
+                    Action.pause();
+                    continue;
+
+                case 3:
+                    Action.cls();
+                    Ui.println("Which potion would you like to use?");
+                    Ui.println("1) Survival Potion");
+                    Ui.println("2) Recovery Potion");
+                    Ui.println("3) Back");
+                    switch (Action.getValidInt()) {
+                        case 1:
+                            Potion.use("survival");
+                            continue;
+                        case 2:
+                            Potion.use("recovery");
+                            continue;
+
+                        case 3:
+                            continue;
+
+                        }//end of switch
+                        break;
+
+                case 4:
+                    return;
+            }//end of switch
+
+        }//end of while
+
+    }//end of fightBoss
+    /*-----------------------------------------------------------------------------------------------*/
+    public static void ending(){
+
+        while (true) {
+            Action.cls();
+            Ui.println("---------------------------------------");
+            Ui.println("                  AUTO                 ");
+            Ui.println();
+            Ui.println(" QUEST COMPLETED");
+            Ui.println("Go back to the main menu to save and quit");
+            Ui.println();
+            Ui.println("--Score Info--");
+            Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
+            Ui.println("     Kill Streak: " + Stats.kills);
+            Ui.println("     Highest Kill Streak: " + Stats.highScore);
+            Ui.println("--" + User.name() + " the " + Class.getName() + "--");
+            Ui.println("     Health: " + Health.getStr());
+            Ui.println("     Coins: " + Coins.get());
+            Ui.println("     First-Aid kits: " + FirstAid.get());
+            Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
+            Ui.println("     Equipped armour: " + Armour.getEquipped().toString());
+            Ui.println("     Equipped Weapon: " + Weapon.get().getName());
+            Ui.println();
+            Ui.println();
+            Ui.println();
+            Ui.println("Thank you so much, as a thanks please take the weapon as my gratitude");
+            Ui.println();
+            Ui.println();
+            Ui.println("1) Woo");
+            Ui.println("2) Back");
+            Ui.println();
+            Ui.println("---------------------------------------");
+
+
+            int choiceMenu = Action.getValidInt();
+
+            switch(choiceMenu) {
+
+                case 1:
+                  Action.cls();
+                  Ui.println("Woo!");
+                  Action.pause();
+                  continue;
+
+                case 2:
+                    library();
+                    return;
+            }//end of switch
+
+
+        }//end of while
+    }//end of ending
+
 }//end of Manor

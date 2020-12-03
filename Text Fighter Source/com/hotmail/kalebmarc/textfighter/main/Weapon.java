@@ -314,7 +314,21 @@
 /*     */   public int getAmmoPrice() {
 /* 312 */     return this.ammoPrice;
 /*     */   }
+
+            public static void scythe(){
+                current = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
+            }//end of scythe
+
+            public static void fireSword(){
+                current = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
+            }//end of fireSword
+
+            public static void morningStar(){
+                current = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
+            }//end of morningStar
+
 /*     */ }
+
 
 
 /* Location:              C:\Users\User\Documents\Text-Base Fighter\Text-Fighter.jar!\com\hotmail\kalebmarc\textfighter\main\Weapon.class
