@@ -867,7 +867,7 @@ public class Manor {
             Ui.println("                  AUTO                 ");
             Ui.println();
             Ui.println(" QUEST COMPLETED");
-            Ui.println();
+            Ui.println("Go back to the main menu to save and quit");
             Ui.println();
             Ui.println("--Score Info--");
             Ui.println("     Level " + Xp.getLevel() + "      " + Xp.getFull());
@@ -898,7 +898,7 @@ public class Manor {
 
                 case 1:
                   Action.cls();
-                  Ui.println("");
+                  Ui.println("Woo!");
                   Action.pause();
                   continue;
 
