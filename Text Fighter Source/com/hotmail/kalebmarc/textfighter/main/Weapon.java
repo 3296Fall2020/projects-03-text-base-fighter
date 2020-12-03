@@ -316,16 +316,16 @@
 /*     */   }
 
             public static void scythe(){
-                current = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
+                current = new Weapon("Demon Scythe",true,false, 0, 5, 5, 30, true, true);
             }//end of scythe
 
-            public static void fireSword(){
-                current = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
-            }//end of fireSword
+            public static void holySword(){
+                current = new Weapon("Holy Sword",true,false, 0, 5, 10, 20, true, true);
+            }//end of holySword
 
-            public static void morningStar(){
-                current = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
-            }//end of morningStar
+            public static void draconicDagger(){
+                current = new Weapon("Draconic Dagger",true,false, 0, 5, 12, 15, true, true);
+            }//end of draconicDagger
 
 /*     */ }
 

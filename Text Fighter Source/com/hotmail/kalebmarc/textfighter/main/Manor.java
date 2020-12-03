@@ -683,18 +683,18 @@ public class Manor {
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println("Choose one rare weapon you would like to equip");
+            Ui.println("You look around and you see a ton of gold bars stacked together glistening as the light ");
+            Ui.println("from the library shown upon them. As you look around more you see old antique armor and ");
+            Ui.println("miscellaneous items laying around. But there was 3 items that took your eyes. One was a ");
+            Ui.println("pulsating scythe that had a dark aura coming out of it. Another was a shining bright sword ");
+            Ui.println("that never lost it's light even in the midst of darkness. Finally, you saw a dagger that had ");
+            Ui.println("the aura of a powerful dragon coming from it. Here you choose one of the legendary weapons.");
             Ui.println();
             Ui.println();
             Ui.println();
-            Ui.println();
-            Ui.println();
-            Ui.println();
-            Ui.println();
-            Ui.println();
-            Ui.println("1) Scythe");
-            Ui.println("2) Fire Sword");
-            Ui.println("3) Morning Star");
+            Ui.println("1) Demon Scythe");
+            Ui.println("2) Holy Sword"); 
+            Ui.println("3) Draconic Dagger");
             Ui.println("4) Back");
             Ui.println();
             Ui.println("---------------------------------------");
@@ -705,7 +705,7 @@ public class Manor {
 
                 case 1:
 
-                    if(Weapon.get().getName().equals("Fire Sword") || Weapon.get().getName().equals("Morning Star")){
+                    if(Weapon.get().getName().equals("Holy Sword") || Weapon.get().getName().equals("Draconic Dagger")){
                         Action.cls();
                         Ui.println("Sorry you already have a "+Weapon.get().getName());
                         Action.pause();
@@ -714,7 +714,9 @@ public class Manor {
                     else {
                         Weapon.scythe();
                         Action.cls();
-                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Ui.println("You equipped the " + Weapon.get().getName() +", but upon choosing it you feel a surge of dark energy invading your body and mind. You have a strange urge to kill. "
+                        		+ "You lose 20 Hp");
+                        Health.lose(10);
                         Action.pause();
                     }//enf of else
 
@@ -726,16 +728,18 @@ public class Manor {
 
                 case 2:
 
-                    if(Weapon.get().getName().equals("Scythe") || Weapon.get().getName().equals("Morning Star")){
+                    if(Weapon.get().getName().equals("Demon Scythe") || Weapon.get().getName().equals("Draconic Dagger")){
                         Action.cls();
                         Ui.println("Sorry you already have a "+Weapon.get().getName());
                         Action.pause();
                     }
 
                     else {
-                        Weapon.fireSword();
+                        Weapon.holySword();
                         Action.cls();
-                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Ui.println("You equiped the " + Weapon.get().getName() +" and can feel the power of light enveloping your body as you feel lighter and ready for anything."
+                        		+ " You gained 100 xp");
+                        Xp.set(100, true);
                         Action.pause();
                     }
                     fightBoss();
@@ -744,16 +748,18 @@ public class Manor {
 
                 case 3:
 
-                    if(Weapon.get().getName().equals("Scythe") || Weapon.get().getName().equals("Fire Sword")){
+                    if(Weapon.get().getName().equals("Demon Scythe") || Weapon.get().getName().equals("Holy Sword")){
                         Action.cls();
                         Ui.println("Sorry you already have a "+Weapon.get().getName());
                         Action.pause();
                     }//end of if
 
                     else {
-                        Weapon.morningStar();
+                        Weapon.draconicDagger();
                         Action.cls();
-                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Ui.println("You equip the " + Weapon.get().getName() +" and as you picked it up you start seeing past memories of a god lie dragon soaring through the air."
+                        		+ " As the vision passes you take 100 gold. Muhahaha.");
+                        Coins.set(100, true);
                         Action.pause();
                     }//enf of else
 
