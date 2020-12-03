@@ -704,29 +704,59 @@ public class Manor {
             switch(choiceMenu) {
 
                 case 1:
-                    Weapon scythe = new Weapon("Scythe",true,false, 0, 5, 5, 12, true, true);
-                    Action.cls();
-                    Ui.println("You now equipped "+scythe.getName());
-                    Action.pause();
+
+                    if(Weapon.get().getName().equals("Fire Sword") || Weapon.get().getName().equals("Morning Star")){
+                        Action.cls();
+                        Ui.println("Sorry you already have a "+Weapon.get().getName());
+                        Action.pause();
+                    }
+
+                    else {
+                        Weapon.scythe();
+                        Action.cls();
+                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Action.pause();
+                    }//enf of else
+
                     fightBoss();
+
                     break;
 
 
 
                 case 2:
-                    Weapon fireSword = new Weapon("Fire Sword",true,false, 0, 5, 2, 13, true, true);
-                    Action.cls();
-                    Ui.println("You now equipped "+fireSword.getName());
-                    Action.pause();
+
+                    if(Weapon.get().getName().equals("Scythe") || Weapon.get().getName().equals("Morning Star")){
+                        Action.cls();
+                        Ui.println("Sorry you already have a "+Weapon.get().getName());
+                        Action.pause();
+                    }
+
+                    else {
+                        Weapon.fireSword();
+                        Action.cls();
+                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Action.pause();
+                    }
                     fightBoss();
 
                     break;
 
                 case 3:
-                    Weapon morningStar = new Weapon("Morning Star",true,false, 0, 5, 3, 15, true, true);
-                    Action.cls();
-                    Ui.println("You now equipped "+morningStar.getName());
-                    Action.pause();
+
+                    if(Weapon.get().getName().equals("Scythe") || Weapon.get().getName().equals("Fire Sword")){
+                        Action.cls();
+                        Ui.println("Sorry you already have a "+Weapon.get().getName());
+                        Action.pause();
+                    }//end of if
+
+                    else {
+                        Weapon.morningStar();
+                        Action.cls();
+                        Ui.println("You now equipped " + Weapon.get().getName());
+                        Action.pause();
+                    }//enf of else
+
                     fightBoss();
 
                     break;
@@ -822,7 +852,6 @@ public class Manor {
                         break;
 
                 case 4:
-                    library();
                     return;
             }//end of switch
 
