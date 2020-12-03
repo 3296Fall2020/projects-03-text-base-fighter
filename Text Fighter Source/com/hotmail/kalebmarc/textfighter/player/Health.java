@@ -53,7 +53,7 @@ import com.hotmail.kalebmarc.textfighter.main.Game;
 /*  52 */       health = outOf; 
 /*     */   }
 /*     */   
-/*     */   private static void lose(int h) {
+/*     */   public static void lose(int h) {
 /*  56 */     health -= h;
 /*  57 */     if (health <= 0)
 /*  58 */       die(); 

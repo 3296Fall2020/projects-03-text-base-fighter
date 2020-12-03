@@ -57,7 +57,8 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public static void start() {
+/*     */   public static void start() 
+			{
 /*  52 */     Action.cls();
 /*  53 */     Ui.println("____________________________________________");
 /*  54 */     Ui.println("|                                           |");
@@ -69,13 +70,15 @@
 /*  60 */     Ui.println("|___________________________________________|");
 /*     */     
 /*  62 */     int choice = Action.getValidInt();
-/*  63 */     switch (choice) {
+/*  63 */     switch (choice) 
+			{
 /*     */       case 1:
 /*  65 */         if (SaveAndLoad.load())
 /*     */           break; 
 /*  67 */       default: 
                     Settings.setDif(getDifficulty(), true, false);
-/*  70 */           if (choice != 1) {
+/*  70 */           if (choice != 1) 
+					{
 /*  71 */           User.promptNameSelection();
 /*     */           }
                     	
@@ -91,7 +94,8 @@
 /*  59 */     Ui.println("| 5) None                                   |");	
 /*  60 */     Ui.println("|___________________________________________|");	
 /*     */      	
-/*     */     switch (Action.getValidInt()){	
+/*     */     switch (Action.getValidInt())
+				{	
 /*     */       case 1:	
 /*     */           Class.choose("Knight", 110, broadsword, 3);	
 /*     */           break;	
@@ -107,20 +111,17 @@
 /*     */       case 5:	
 /*     */           Class.choose("Deprived", 50, nothing, 0);	
 /*     */           break;	
-/*     */     }	/*     */     }//end of switch
+/*     */     }	/*     */     
+			}//end of switch
 /*     */     Class.startingClass();	
 /*  69 */     Enemy.encounterNew();	//}//end of start
 /*     */     mainGameplay();  
-/*     */     }
+/*     */     } //end start
 
-//}
-/*     */   
-/*  69 */     Enemy.encounterNew();	
-/*     */     mainGameplay();  
-/*     */     
-}
-/*     */   public static void town() {
-/*     */     while (true) {
+/*     */   public static void town() 
+			{
+/*     */     while (true) 
+				{
 /* 188 */       Action.cls();
                 
 /* 189 */       Ui.println("------------------------------------------------------------------");
@@ -147,7 +148,8 @@
 /*     */       
 /* 209 */       int menuChoice = Action.getValidInt();
 /*     */       
-/* 211 */       switch (menuChoice) {
+/* 211 */       switch (menuChoice) 
+				{
 /*     */         case 1:
 /* 213 */           Casino.menu();
                     break;
@@ -172,14 +174,16 @@
                   case 7:
 /*     */           return;
 /*     */       } 
-/*     */     } 
+/*     */     }//end while() 
 /*     */   }//end of town
 /*     */ 
-/*     */ public static void battle_hotkey(){	
+/*     */ public static void battle_hotkey()
+			{	
               int fightPath;	
               fightPath = Random.RInt(1,100);	
 
-         if (Weapon.get().getName().equals("Sniper")) {	
+         if (Weapon.get().getName().equals("Sniper")) 
+         {	
             if (fightPath <= 30) Enemy.get().dealDamage(); 	
             if (fightPath > 30) sniper.dealDam();  	
             return;	
@@ -193,7 +197,8 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   private static void home() {
+/*     */   private static void home() 
+			{
 /*     */     while (true) {
 /* 241 */       Action.cls();
                 
@@ -327,10 +332,7 @@
 /* 327 */     Action.cls();
 /* 328 */     return "Easy";
 /*     */   }//end of getDifficulty
-                    return;
-             } 
-        } 
- }
+ 
 
 /*     */   public static void mainGameplay(){
     /*     */     while (true) {
@@ -455,147 +457,4 @@
 /*     */     } 
 }//end of Gameplay
 /*     */
-        }//end of Game
-}
-
-/*     */   public static void battle_hotkey(){	
-              int fightPath;	
-              fightPath = Random.RInt(1,100);	
-
-         if (Weapon.get().getName().equals("Sniper")) {	
-            if (fightPath <= 30) Enemy.get().dealDamage(); 	
-            if (fightPath > 30) sniper.dealDam();  	
-            return;	
-           } 	
-          if (fightPath <= 50) Enemy.get().dealDamage(); 	
-         if (fightPath > 50) Weapon.get().dealDam();	
-}
-
-/*     */   private static void home() {
-/*     */     while (true) {
-/* 241 */       Action.cls();
-                
-/* 242 */       Ui.println("------------------------------------------------------------------");
-/* 243 */       Ui.println("                          WELCOME HOME                            ");
-                Ui.home_pop();
-/* 244 */       Ui.println("--Score Info--");
-/* 245 */       Ui.println("     Kill Streak: " + Stats.kills);
-/* 246 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
-/* 247 */       Ui.println("--Player Info--");
-/* 248 */       Ui.println("     Health: " + Health.getStr());
-/* 249 */       Ui.println("     Coins: " + Coins.get());
-/* 250 */       Ui.println("     First-Aid kits: " + FirstAid.get());
-/* 251 */       Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
-/* 252 */       Ui.println("     Equipped Weapon: " + Weapon.get().getName());
-/* 253 */       Ui.println("------------------------------------------------------------------");
-/* 254 */       Ui.println("1) Equip weapon");
-/* 255 */       Ui.println("2) Equip Armour");
-/* 256 */       Ui.println("3) View Item Chest");
-/* 257 */       Ui.println("4) Achievements");
-/* 258 */       Ui.println("5) Stats");
-/* 259 */       Ui.println("6) About");
-/* 260 */       Ui.println("7) Settings");
-/* 261 */       Ui.println("8) Help");
-/* 262 */       Ui.println("9) Back");
-/* 263 */       Ui.println("------------------------------------------------------------------");
-/*     */       
-/* 265 */       int menuChoice = Action.getValidInt();
-/*     */       
-/* 267 */       switch (menuChoice) {
-/*     */         case 1:
-/* 269 */           Weapon.choose();
-                    break;
-/*     */         
-/*     */         case 2:
-/* 272 */           Armour.choose();
-                    break;
-/*     */         
-/*     */         case 3:
-/* 275 */           Chest.view();
-                    break;
-/*     */         
-/*     */         case 4:
-/* 278 */           Ach.view();
-                    break;
-/*     */         
-/*     */         case 5:
-/* 281 */           Stats.view();
-                    break;
-/*     */         
-/*     */         case 6:
-/* 284 */           About.view(true);
-/* 285 */           Ach.viewedAbout = true;
-                    break;
-/*     */         
-/*     */         case 7:
-/* 288 */           Settings.menu();
-/*     */           break;
-/*     */         case 8:
-/* 291 */           Help.view();
-/*     */           break;
-/*     */         case 9:
-/*     */           return;
-/*     */       } 
-/*     */     } 
-/*     */   }
-
-/*     */   private static String getDifficulty() {
-/* 308 */     Action.cls();
-/* 309 */     Ui.println("_____________________________________________");
-/* 310 */     Ui.println("|                                           |");
-/* 311 */     Ui.println("|       What difficulty would you           |");
-/* 312 */     Ui.println("|            like to play on?               |");
-/* 313 */     Ui.println("|                                           |");
-/* 314 */     Ui.println("| 1) Easy                                   |");
-/* 315 */     Ui.println("| 2) Hard                                   |");
-/* 316 */     Ui.println("|___________________________________________|");
-/*     */     
-/* 318 */     if (!scan.hasNextInt()) {
-/* 319 */       Action.cls();
-/* 320 */       return "Easy";
-/*     */     } 
-/* 322 */     int difficultyChoice = scan.nextInt();
-/* 323 */     if (difficultyChoice == 2) {
-/* 324 */       Action.cls();
-/* 325 */       return "Hard";
-/*     */     } 
-/* 327 */     Action.cls();
-/* 328 */     return "Easy";
-/*     */   }
-
-/*     */   public static void estate(){
-            while (true) {
-                Action.cls();
-
-                Ui.println("------------------------------------------------------------------");
-                Ui.println("                 WELCOME TO THE MEIER ESTATE                      ");
-                Ui.println("--Score Info--");
-                Ui.println("     Kill Streak: " + Stats.kills);
-                Ui.println("     Highest Kill Streak: " + Stats.highScore);
-                Ui.println("--Player Info--");
-                Ui.println("     Health: " + Health.getStr());
-                Ui.println("     Coins: " + Coins.get());
-                Ui.println("     First-Aid kits: " + FirstAid.get());
-                Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));
-                Ui.println("     Equipped Weapon: " + Weapon.get().getName());
-                Ui.println("------------------------------------------------------------------");
-                Ui.println("1) Go to the Manor");
-                Ui.println("2) Back");
-                Ui.println("------------------------------------------------------------------");
-
-                int menuChoice = Action.getValidInt();
-
-                switch(menuChoice){
-
-                    case 1:
-                        Manor.menu();
-                        break;
-
-                    case 2:
-                        return;
-
-                }//end of switch
-             }//end of while
-            }//end of estate
-
-}
+}//end of Game
