@@ -14,6 +14,7 @@
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Stats;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Xp;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Class;
+/*     */ import com.hotmail.kalebmarc.textfighter.player.Mana;
 /*     */ import java.util.Scanner;
 /*     */ 
 /*     */ 
@@ -44,6 +45,7 @@
 /*     */   public static Weapon battleAxe;	
 /*     */   public static Weapon dagger;	
 /*     */   public static Weapon mace;
+/*     */   public static Weapon staff;
 /*  41 */   public static Armour none = new Armour("None", 0, 0, 1);
 /*  42 */   public static Armour basic = new Armour("Basic", 400, 15, 5);
 /*  43 */   public static Armour advanced = new Armour("Advanced", 750, 30, 7);
@@ -51,6 +53,7 @@
 /*     */   public static Armour warrior = new Armour("Warrior", 100, 10, 1);	
 /*     */   public static Armour rogue = new Armour("Rogue", 100, 5, 1);	
 /*     */   public static Armour paladin = new Armour("Paladin", 100, 25, 1);
+/*     */   public static Armour mage = new Armour("Mage", 100, 5, 1);
 /*  45 */   private static final Scanner scan = new Scanner(System.in);
 /*     */ 
 /*     */ 
@@ -91,7 +94,8 @@
 /*  59 */     Ui.println("| 2) Warrior                                |");	
 /*  59 */     Ui.println("| 3) Rogue                                  |");	
 /*  59 */     Ui.println("| 4) Paladin                                |");	
-/*  59 */     Ui.println("| 5) None                                   |");	
+/*  59 */     Ui.println("| 5) Mage                                   |");	
+/*  59 */     Ui.println("| 6) None                                   |");	
 /*  60 */     Ui.println("|___________________________________________|");	
 /*     */      	
 /*     */     switch (Action.getValidInt())
@@ -109,11 +113,15 @@
 /*     */           Class.choose("Paladin", 125, mace, 6);	
 /*     */           break;	
 /*     */       case 5:	
-/*     */           Class.choose("Deprived", 50, nothing, 0);	
+/*     */           Class.choose("Mage", 75, staff, 7);	
 /*     */           break;	
+/*     */       case 6:	
+/*     */           Class.choose("Deprived", 50, nothing, 0);	
+/*     */           break;
 /*     */     }	/*     */     
 			}//end of switch
-/*     */     Class.startingClass();	
+/*     */     Class.startingClass();
+/*     */     if(Class.getName().equals("Mage")){Mana.set(60, 60);}	
 /*  69 */     Enemy.encounterNew();	//}//end of start
 /*     */     mainGameplay();  
 /*     */     } //end start
@@ -182,14 +190,28 @@
               int fightPath;	
               fightPath = Random.RInt(1,100);	
 
-         if (Weapon.get().getName().equals("Sniper")) 
-         {	
+        if (Weapon.get().getName().equals("Sniper")) 
+        {	
             if (fightPath <= 30) Enemy.get().dealDamage(); 	
             if (fightPath > 30) sniper.dealDam();  	
             return;	
-           } 	
-          if (fightPath <= 50) Enemy.get().dealDamage(); 	
-         if (fightPath > 50) Weapon.get().dealDam();	
+        }
+        if (Weapon.get().getName().equals("Staff"))
+        {
+            if(fightPath <= 30) Enemy.get().dealDamage();
+            if(fightPath > 30){
+                if(Mana.get() >= 20){
+                    staff.dealDam();
+                    Mana.lose(20);
+                } else {
+                    System.out.println("You do not have enough mana to cast fireball.");
+                }
+            }
+            Mana.gain(5);
+            return;
+        }
+        if (fightPath <= 50) Enemy.get().dealDamage(); 	
+        if (fightPath > 50) Weapon.get().dealDam();	
 }//end of hotkey
 /*     */ 
 /*     */ 
@@ -336,7 +358,6 @@
 
 /*     */   public static void mainGameplay(){
     /*     */     while (true) {
-/*     */       int fightPath;
 /*  78 */       if (Stats.kills > Stats.highScore) Stats.highScore = Stats.kills; 
 /*  79 */       Ach.check();
 /*  80 */       SaveAndLoad.save();
@@ -360,6 +381,9 @@
 /*  98 */       Ui.println("     Highest Kill Streak: " + Stats.highScore);
 /*  99 */       Ui.println("--" + User.name() + " the " + Class.getName() + "--");
 /* 100 */       Ui.println("     Health: " + Health.getStr());
+/*     */       if(Class.getName().equals("Mage")){
+/*     */       Ui.println("     Mana: " + Mana.getStr());
+/*     */       }
 /* 101 */       Ui.println("     Coins: " + Coins.get());
 /* 102 */       Ui.println("     First-Aid kits: " + FirstAid.get());
 /* 103 */       Ui.println("     Potions: " + (Potion.get("survival") + Potion.get("recovery")));

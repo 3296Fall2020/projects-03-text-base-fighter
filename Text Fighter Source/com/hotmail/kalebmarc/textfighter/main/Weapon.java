@@ -5,6 +5,8 @@
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Health;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Stats;
 /*     */ import com.hotmail.kalebmarc.textfighter.player.Xp;
+/*     */ import com.hotmail.kalebmarc.textfighter.player.Class;
+/*     */ import com.hotmail.kalebmarc.textfighter.player.Mana;
 /*     */ import java.util.ArrayList;
 /*     */ 
 /*     */ 
@@ -58,6 +60,28 @@
 /*     */     }
 /*     */   }
 /*     */ 
+
+/*     */   public Weapon(String name, boolean startingWeapon, boolean buyable, int price, int level, double chanceOfMissing, boolean firstInit, boolean changeDif){
+/*  64 */     this.name = name;
+/*  65 */     this.buyable = buyable;
+/*  66 */     this.price = price;
+/*  67 */     this.level = level;
+/*  49 */     this.chanceOfMissing = chanceOfMissing;
+/*  50 */     this.melee = false;
+/*     */
+/*  72 */     if (!changeDif) {
+/*  73 */       arrayWeapon.add(this);
+/*     */     }
+/*     */     
+/*  76 */     if (firstInit)
+/*  77 */       if (startingWeapon) {
+/*  78 */         this.owns = true;
+/*  79 */         current = this;
+/*  80 */         starting = this;
+/*     */       } else {
+/*  82 */         this.owns = false;
+/*     */       } 
+/*     */     }
 /*     */ 
 /*     */   
 /*     */   public Weapon(String name, boolean startingWeapon, boolean buyable, int price, int level, int damageMin, int damageMax, boolean firstInit, boolean changeDif) {
@@ -173,6 +197,9 @@
 /* 173 */         setAmmo(-this.ammoUsed, true);
 /* 174 */         Stats.bulletsFired += this.ammoUsed;
 /*     */       } 
+/*     */     } 
+/*     */     else if(get() == Game.staff){
+/*     */       damageDealt = 30;
 /*     */     } else {
 /*     */       
 /* 178 */       noAmmo();
@@ -191,6 +218,9 @@
 /* 190 */     Ui.println("You dealt " + damageDealt + " damage with a " + this.name);
 /* 191 */     Ui.println("----------------------------------------------------");
 /* 192 */     Ui.println("Your health: " + Health.getStr());
+/*     */     if(Class.getName().equals("Mage")){
+/*     */     Ui.println("Your mana: " + Mana.getStr());
+/*     */     }
               Ui.enemy_health_bar(Health.get(), Health.getOutOf());
 /* 193 */     Ui.println("Enemy health: " + Enemy.get().getHeathStr());
               Ui.enemy_health_bar(Enemy.get().getHealth(), Enemy.get().getHealthMax());
