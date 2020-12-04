@@ -176,6 +176,7 @@
 /*     */       Game.battleAxe = new Weapon("Battle Axe", true, false, 20, 1, 10, 20, firstInit, changeDif);
 /*     */       Game.dagger = new Weapon("Dagger", true, false, 20, 1, 5, 30, firstInit, changeDif);
 /*     */       Game.mace = new Weapon("Mace", true, false, 20, 1, 10, 15, firstInit, changeDif);
+/*     */       Game.staff = new Weapon("Staff", true, false, 20, 1, 0, firstInit, changeDif);
 /*     */ 
 /*     */       
 /* 177 */       Power.price = 25;
@@ -224,6 +225,7 @@
 /*     */       Game.battleAxe = new Weapon("Battle Axe", true, false, 10, 1, 10, 20, firstInit, changeDif);
 /*     */       Game.dagger = new Weapon("Dagger", true, false, 10, 1, 5, 30, firstInit, changeDif);
 /*     */       Game.mace = new Weapon("Mace", true, false, 10, 1, 10, 15, firstInit, changeDif);
+/*     */       Game.staff = new Weapon("Staff", true, false, 10, 1, 0, firstInit, changeDif);
 /*     */ 
 /*     */       
 /* 221 */       Power.price = 75;
